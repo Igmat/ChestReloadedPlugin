@@ -321,10 +321,12 @@
     <EmbeddedResource Include="Assets\Assets.manifest" />
     <EmbeddedResource Include="Assets\signed_chest" />
     <EmbeddedResource Include="Assets\signed_chest.manifest" />
-    <None Include="prebuild.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="prebuild.sh" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>call "$(ProjectDir)prebuild.bat"</PreBuildEvent>
+    <PreBuildEvent>call "$(ProjectDir)prebuild.sh"</PreBuildEvent>
   </PropertyGroup>
 </Project>
