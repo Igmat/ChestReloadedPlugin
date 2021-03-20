@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: fc28b8d9da0e0e747a218ecbb8ac138a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Norse
+  fontNames:
+  - Norse
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: signed_chest
+  assetBundleVariant: 

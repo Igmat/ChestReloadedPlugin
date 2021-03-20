@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Container
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 1790797106, guid: 84d26606dc84d8d479cd25f2b739068a,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_name
+    value: $wooden_signed_locker
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_bkg
+    value: 
+    objectReference: {fileID: 21300146, guid: f0f5da6661acde946ad5fe29ad235571, type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_width
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_height
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_privacy
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_checkGuardStone
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_autoDestroyEmpty
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_defaultItems.m_drops.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_defaultItems.m_dropMin
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_defaultItems.m_dropMax
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_defaultItems.m_dropChance
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_defaultItems.m_oneOfEach
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_open
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_closed
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_openEffects.m_effectPrefabs.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_openEffects.m_effectPrefabs.Array.data[0].m_prefab
+    value: 
+    objectReference: {fileID: 1568936777285893, guid: 6e1450ca44e62a64e85ee822ba908f54,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_openEffects.m_effectPrefabs.Array.data[0].m_enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_openEffects.m_effectPrefabs.Array.data[0].m_attach
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_openEffects.m_effectPrefabs.Array.data[0].m_inheritParentRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_openEffects.m_effectPrefabs.Array.data[0].m_inheritParentScale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_openEffects.m_effectPrefabs.Array.data[0].m_randomRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_openEffects.m_effectPrefabs.Array.data[0].m_scale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_closeEffects.m_effectPrefabs.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_closeEffects.m_effectPrefabs.Array.data[0].m_prefab
+    value: 
+    objectReference: {fileID: 1625399178271946, guid: b9782ca3942f83d44baced5b05706d3f,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_closeEffects.m_effectPrefabs.Array.data[0].m_enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_closeEffects.m_effectPrefabs.Array.data[0].m_attach
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_closeEffects.m_effectPrefabs.Array.data[0].m_inheritParentRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_closeEffects.m_effectPrefabs.Array.data[0].m_inheritParentScale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_closeEffects.m_effectPrefabs.Array.data[0].m_randomRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_closeEffects.m_effectPrefabs.Array.data[0].m_scale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_rootObjectOverride
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_wagon
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedLootPrefab
+    value: 
+    objectReference: {fileID: 0}
