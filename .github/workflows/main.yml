@@ -1,0 +1,71 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push events but only for the master branch
+  push:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+      
+      - name: Install mono and xbuild
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git mono-complete mono-xbuild nuget
+          
+      - name: Setup Unity
+        uses: kuler90/setup-unity@v1.0.6
+        with:
+          unity-version: 2019.4.20f1
+      
+      - name: Install NexusUploader
+        run: dotnet tool install -g NexusUploader
+        
+      - name: Get the Release version tag
+        id: vars
+        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+        
+      - name: Update const string BepinEx version field
+        run: sed -i 's/"0.0.1"/"${{steps.vars.outputs.tag}}"/g' Plugin/Plugin.cs
+      - name: Update manifest/json version field
+        run: sed -i 's/"0.0.1"/"${{steps.vars.outputs.tag}}"/g' manifest.json
+        
+      - name: Build and Create the package
+        run: xbuild ChestReloadedPlugin.sln /p:Configuration=Release /p:Version=${{steps.vars.outputs.tag}}
+          
+      - name: Zip
+        run: |
+          mkdir output
+          mkdir output/plugins/
+          cp ChestReloaded.dll output/plugins
+      - uses: papeloto/action-zip@v1
+        with:
+          files: output/ icon.png manifest.json README.md
+          dest: ChestReloaded_release.zip
+          
+      - name: Upload
+        run: |
+          unex upload 504 ChestReloaded_release.zip -v ${{ steps.vars.outputs.tag }}
+        env:
+          UNEX_APIKEY: ${{ secrets.NEXUS_API_KEY }}
+          UNEX_COOKIES: ${{ secrets.NEXUS_COOKIES }}
+          UNEX_DEBUG: true
+          UNEX_FILENAME: ChestReloaded
+          UNEX_GAME: valheim
