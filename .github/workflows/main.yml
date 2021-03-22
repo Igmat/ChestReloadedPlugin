@@ -68,6 +68,9 @@ jobs:
         
       - name: Build and Create the package
         run: dotnet build ${{ steps.vars.outputs.solution }} -c Release
+        env:
+          UNITY_LOGIN: ${{ secrets.UNITY_LOGIN }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
           
       - name: Zip
         run: |
