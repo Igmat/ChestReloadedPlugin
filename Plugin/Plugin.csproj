@@ -327,10 +327,10 @@
     <None Include="postbuild.sh" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>call "$(ProjectDir)prebuild.sh"</PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>call "$(ProjectDir)postbuild.sh"</PostBuildEvent>
-  </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <Exec Command="sh prebuild.sh" ConsoleToMsBuild="true" />
+  </Target>
+  <Target Name="AfterBuild">
+    <Exec Command="sh postbuild.sh" ConsoleToMsBuild="true" />
+  </Target>
 </Project>

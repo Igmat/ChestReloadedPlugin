@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31112.23
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "Plugin\Plugin.csproj", "{9520573B-FF0F-4792-8FEF-ADE82749B704}"
@@ -43,7 +41,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,8 +57,5 @@ Global
 		{11A928D7-640F-4562-87D1-13827C6236EE} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
 		{4FCCA697-A5DF-497C-8DF8-4E32667F939F} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
 		{9A6F0570-A16C-4304-B310-929D804AF9C8} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3C67E821-C596-4402-8B88-04FE2F364B86}
 	EndGlobalSection
 EndGlobal
