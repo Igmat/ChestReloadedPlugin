@@ -1,73 +1,88 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
 
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push events but only for the master branch
-  # push:
-    # branches: [ master ]
+  push:
+    branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  version:
     runs-on: ubuntu-latest
+    
+    name: Calculate version
+    outputs:
+      skipped: ${{ steps.changelog.outputs.skipped }}
+      tag: ${{ steps.changelog.outputs.tag }}
+      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      
+    - uses: actions/checkout@v2
+    - name: Create Changelog
+      id: changelog
+      uses: TriPSs/conventional-changelog-action@v3
+      with:
+        github-token: ${{ secrets.github_token }}
+        git-message: 'chore(release): {version}'
+        git-user-name: 'Conventional Changelog Action'
+        git-user-email: 'conventional_changelog@github.actions.com'
+        preset: 'angular'
+        tag-prefix: 'v'
+        output-file: 'CHANGELOG.md'
+        release-count: '10'
+        version-file: './manifest.json'
+        version-path: 'version_number'
+        skip-on-empty: 'true'
+        skip-version-file: 'false'
+        skip-commit: 'false'
+
+  build:
+    runs-on: ubuntu-latest
+        
+    name: Publish
+    needs: version    
+    if: ${{ needs.version.outputs.skipped == 'false' }}
+
+    steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: 5.0.x
-      
-      - name: Install mono and xbuild
+        
+      - name: Setup Variables
+        id: vars
         run: |
-          sudo apt-get update
-          sudo apt-get install -y git mono-complete mono-xbuild nuget
+          echo ::set-output name=file::Plugin_release_${{ needs.version.outputs.tag }}.zip
+          echo ::set-output name=solution::ChestReloadedPlugin.sln
           
       - name: Setup Unity
         uses: kuler90/setup-unity@v1.0.6
         with:
           unity-version: 2019.4.20f1
-      
-      - name: Install NexusUploader
-        run: dotnet tool install -g NexusUploader
-        
-      - name: Get the Release version tag
-        id: vars
-        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
-        
-      - name: Update const string BepinEx version field
-        run: sed -i 's/"0.0.1"/"${{steps.vars.outputs.tag}}"/g' Plugin/Plugin.cs
-      - name: Update manifest/json version field
-        run: sed -i 's/"0.0.1"/"${{steps.vars.outputs.tag}}"/g' manifest.json
         
       - name: Build and Create the package
-        run: xbuild ChestReloadedPlugin.sln /p:Configuration=Release /p:Version=${{steps.vars.outputs.tag}}
+        run: dotnet build ${{ steps.vars.outputs.solution }} -c Release
           
       - name: Zip
         run: |
           mkdir output
-          mkdir output/plugins/
-          cp ChestReloaded.dll output/plugins
+          cp Plugin/bin/Release output/plugins
       - uses: papeloto/action-zip@v1
         with:
           files: output/ icon.png manifest.json README.md
-          dest: ChestReloaded_release.zip
+          dest: ${{ steps.vars.outputs.file }}
           
-      - name: Upload
+      - name: Upload to NexusMods
         run: |
-          unex upload 504 ChestReloaded_release.zip -v ${{ steps.vars.outputs.tag }}
+          dotnet unex upload ${{ steps.vars.outputs.file }} -v ${{ needs.version.outputs.tag }}
         env:
           UNEX_APIKEY: ${{ secrets.NEXUS_API_KEY }}
           UNEX_COOKIES: ${{ secrets.NEXUS_COOKIES }}
           UNEX_DEBUG: true
-          UNEX_FILENAME: ChestReloaded
-          UNEX_GAME: valheim
+
+      - name: Create GH Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ needs.version.outputs.tag }}
+          name: Valheim Plugin ${{ needs.version.outputs.tag }}
+          body: ${{ needs.version.outputs.clean_changelog }}
+          artifacts: ${{ steps.vars.outputs.file }}
+          token: ${{ secrets.github_token }}
