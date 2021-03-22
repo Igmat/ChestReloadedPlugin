@@ -11,7 +11,7 @@ echo "--------------------------------CALCULATED DATA---------------------------
 echo "CREATEPROJECTPATH   =" $CREATEPROJECTPATH
 echo ""
 echo "----------------------------REMOVE VERSION NUMBER------------------------------------------"
-version=`grep -Po '(?<="version_number": )".*"(?=,)' "$CREATEPROJECTPATH/manifest.json"`
+version=`LC_ALL=en_US.utf8 grep -Po '(?<="version_number": )".*"(?=,)' "$CREATEPROJECTPATH/manifest.json"`
 echo $version
 sed -i "s/$version/\"1.0.0\"/" "$CREATEPROJECTPATH/Plugin/Properties/AssemblyInfo.cs"
 sed -i "s/$version/\"1.0.0\"/" "$CREATEPROJECTPATH/Plugin/Plugin.cs"

@@ -25,7 +25,7 @@ echo "UNITYPATH           =" $UNITYPATH
 echo "CREATEPROJECTPATH   =" $CREATEPROJECTPATH
 echo ""
 echo "-----------------------------PUT VERSION NUMBER--------------------------------------------"
-version=`grep -Po '(?<="version_number": )".*"(?=,)' "$CREATEPROJECTPATH/manifest.json"`
+version=`LC_ALL=en_US.utf8 grep -Po '(?<="version_number": )".*"(?=,)' "$CREATEPROJECTPATH/manifest.json"`
 echo $version
 sed -i "s/\"1.0.0\"/$version/" "$CREATEPROJECTPATH/Plugin/Properties/AssemblyInfo.cs"
 sed -i "s/\"1.0.0\"/$version/" "$CREATEPROJECTPATH/Plugin/Plugin.cs"

@@ -260,33 +260,6 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="assembly_googleanalytics">
-      <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Assets/Assemblies/assembly_googleanalytics.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_guiutils">
-      <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Assets/Assemblies/assembly_guiutils.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_lux">
-      <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Assets/Assemblies/assembly_lux.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_postprocessing">
-      <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Assets/Assemblies/assembly_postprocessing.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_simplemeshcombine">
-      <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Assets/Assemblies/assembly_simplemeshcombine.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_steamworks">
-      <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Assets/Assemblies/assembly_steamworks.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_sunshafts">
-      <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Assets/Assemblies/assembly_sunshafts.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_utils">
-      <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Assets/Assemblies/assembly_utils.dll</HintPath>
-    </Reference>
-    <Reference Include="assembly_valheim">
-      <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Assets/Assemblies/assembly_valheim.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:/Users/Ihor/Documents/Projects/Game Modding/ChestReloadedPlugin/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
