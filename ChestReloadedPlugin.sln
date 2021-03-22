@@ -1,9 +1,40 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "Plugin\Plugin.csproj", "{9520573B-FF0F-4792-8FEF-ADE82749B704}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{17C7A438-CA1A-405E-879C-21AAB7EE17D9}"
+	ProjectSection(SolutionItems) = preProject
+		icon.png = icon.png
+		manifest.json = manifest.json
+		unex.yml = unex.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{97D83F05-0F6A-4E9B-8B38-38C6911EC9F5}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\main.yml = .github\workflows\main.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{11A928D7-640F-4562-87D1-13827C6236EE}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{4FCCA697-A5DF-497C-8DF8-4E32667F939F}"
+	ProjectSection(SolutionItems) = preProject
+		.config\dotnet-tools.json = .config\dotnet-tools.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9A6F0570-A16C-4304-B310-929D804AF9C8}"
+	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,9 +43,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -22,5 +51,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97D83F05-0F6A-4E9B-8B38-38C6911EC9F5} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
+		{11A928D7-640F-4562-87D1-13827C6236EE} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
+		{4FCCA697-A5DF-497C-8DF8-4E32667F939F} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
+		{9A6F0570-A16C-4304-B310-929D804AF9C8} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C67E821-C596-4402-8B88-04FE2F364B86}
 	EndGlobalSection
 EndGlobal

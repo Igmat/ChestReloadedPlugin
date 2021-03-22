@@ -62,6 +62,9 @@ jobs:
         uses: kuler90/setup-unity@v1.0.6
         with:
           unity-version: 2019.4.20f1
+
+      - name: Restore tools
+        run: dotnet tool restore
         
       - name: Build and Create the package
         run: dotnet build ${{ steps.vars.outputs.solution }} -c Release

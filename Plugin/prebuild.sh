@@ -3,8 +3,9 @@
 # use next line if you installed Unity separatly (but note, that you should use 2019.4.20f1 version)
 # [ -z "$UNITYPATH" ] && UNITYPATH=STANDALONEUNITYPATH
 
+# TODO: find a way how to use declared UNITYPATH variable in GH
 # use next line if you installed Unity using Unity Hub
-[ -z "$UNITYPATH" ] && UNITYPATH=$UNITYHUBEDITORPATH
+UNITYPATH=$UNITYHUBEDITORPATH
 
 # get path to directory where script is located
 MY_PATH="`dirname \"$0\"`"
