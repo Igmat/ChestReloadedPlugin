@@ -36,7 +36,10 @@ jobs:
         skip-commit: 'false'
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
         
     name: Publish
     needs: version    
