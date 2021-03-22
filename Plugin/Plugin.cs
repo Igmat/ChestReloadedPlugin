@@ -10,7 +10,7 @@ namespace ChestReloaded
         public const string ModGuid = AuthorName + "." + ModName;
         private const string AuthorName = "Igmat";
         private const string ModName = "ChestReloaded";
-        private const string ModVer = "0.0.1";
+        private const string ModVer = "1.0.0";
 
         internal static Plugin Instance { get; private set; }
 
@@ -22,10 +22,14 @@ namespace ChestReloaded
             Instance = this;
 
             Log.Init(Logger);
+            Log.LogInfo("version: " + ModVer);
             LanguageData.Init();
+            Log.LogInfo("Language data initialized");
 
             Hooks.Patch.Init();
+            Log.LogInfo("Patches initialized");
             Pieces.SignedLocker.Init();
+            Log.LogInfo("Pieces added");
         }
 
         /// <summary>

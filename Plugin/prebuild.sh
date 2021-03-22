@@ -16,11 +16,19 @@ if [ -z "$CREATEPROJECTPATH" ] ; then
   exit 1  # fail
 fi
 
+echo "--------------------------------CALCULATED DATA--------------------------------------------"
 # echo calculated variables for easier script debug
 echo "STANDALONEUNITYPATH =" $STANDALONEUNITYPATH
 echo "UNITYHUBEDITORPATH  =" $UNITYHUBEDITORPATH
 echo "UNITYPATH           =" $UNITYPATH
 echo "CREATEPROJECTPATH   =" $CREATEPROJECTPATH
-
+echo ""
+echo "-----------------------------PUT VERSION NUMBER--------------------------------------------"
+version=`grep -Po '(?<="version_number": )".*"(?=,)' "$CREATEPROJECTPATH/manifest.json"`
+echo $version
+sed -i "s/\"1.0.0\"/$version/" "$CREATEPROJECTPATH/Plugin/Properties/AssemblyInfo.cs"
+sed -i "s/\"1.0.0\"/$version/" "$CREATEPROJECTPATH/Plugin/Plugin.cs"
+echo ""
+echo "----------------------------GENERATE ASSET BUNDLE------------------------------------------"
 # execute our pipeline script in batch mode of Unity
 exec "$UNITYPATH" -batchmode -quit -projectPath "$CREATEPROJECTPATH" -executeMethod Pipeline.BuildAssetBundles

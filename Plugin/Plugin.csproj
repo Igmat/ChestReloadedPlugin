@@ -324,9 +324,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="prebuild.sh" />
+    <None Include="postbuild.sh" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>call "$(ProjectDir)prebuild.sh"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>call "$(ProjectDir)postbuild.sh"</PostBuildEvent>
   </PropertyGroup>
 </Project>
