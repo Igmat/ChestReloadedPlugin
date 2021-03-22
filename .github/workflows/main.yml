@@ -74,12 +74,9 @@ jobs:
           dest: ${{ steps.vars.outputs.artifact }}
           
       - name: Upload to NexusMods
-        run: >-
-          dotnet unex upload ${{ steps.vars.outputs.artifact }}
-          -v ${{ needs.version.outputs.version }}
-        run: >-
-          dotnet unex changelog ${{ steps.vars.outputs.version }}
-          "${{ needs.version.outputs.clean_changelog }}"
+        run: |
+          dotnet unex upload ${{ steps.vars.outputs.artifact }} -v ${{ needs.version.outputs.version }}
+          dotnet unex changelog ${{ steps.vars.outputs.version }} "${{ needs.version.outputs.clean_changelog }}"
         env:
           UNEX_APIKEY: ${{ secrets.NEXUS_API_KEY }}
           UNEX_COOKIES: ${{ secrets.NEXUS_COOKIES }}
