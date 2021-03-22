@@ -1,4 +1,4 @@
-name: Version
+name: CI
 
 on:
   push:
@@ -6,8 +6,13 @@ on:
 
 jobs:
   version:
-
     runs-on: ubuntu-latest
+    
+    name: Calculate version
+    outputs:
+      skipped: ${{ steps.changelog.outputs.skipped }}
+      tag: ${{ steps.changelog.outputs.tag }}
+      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
 
     steps:
     - uses: actions/checkout@v2
@@ -28,12 +33,52 @@ jobs:
         skip-on-empty: 'true'
         skip-version-file: 'false'
         skip-commit: 'false'
-    - name: Create Release
-      uses: actions/create-release@v1
-      if: ${{ steps.changelog.outputs.skipped == 'false' }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.github_token }}
-      with:
-        tag_name: ${{ steps.changelog.outputs.tag }}
-        release_name: ${{ steps.changelog.outputs.tag }}
-        body: ${{ steps.changelog.outputs.clean_changelog }}
+
+  build:
+    runs-on: ubuntu-latest
+        
+    name: Publish
+    needs: version    
+    if: ${{ needs.version.outputs.skipped == 'false' }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: 5.0.x
+          
+      - name: Setup Unity
+        uses: kuler90/setup-unity@v1.0.6
+        with:
+          unity-version: 2019.4.20f1
+        
+      - name: Build and Create the package
+        run: dotnet build ChestReloadedPlugin.sln -c Release
+          
+      - name: Zip
+        run: |
+          mkdir output
+          cp Plugin/bin/Release output/plugins
+      - uses: papeloto/action-zip@v1
+        with:
+          files: output/ icon.png manifest.json README.md
+          dest: ChestReloaded_release.zip
+          
+      - name: Upload to NexusMods
+        run: |
+          unex upload 504 ChestReloaded_release.zip -v ${{ needs.version.outputs.tag }}
+        env:
+          UNEX_APIKEY: ${{ secrets.NEXUS_API_KEY }}
+          UNEX_COOKIES: ${{ secrets.NEXUS_COOKIES }}
+          UNEX_DEBUG: true
+          UNEX_FILENAME: ChestReloaded
+          UNEX_GAME: valheim
+
+      - name: Create GH Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ needs.version.outputs.tag }}
+          name: Valheim Chest Reloaded ${{ needs.version.outputs.tag }}
+          body: ${{ needs.version.outputs.clean_changelog }}
+          artifacts: "ChestReloaded_release.zip"
+          token: ${{ secrets.github_token }}
