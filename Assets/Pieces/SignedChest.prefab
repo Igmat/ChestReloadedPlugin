@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3679363615783512399}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _snappoint (4)
   m_TagString: snappoint
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4247982334267547381}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1246667802892096957}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _snappoint (6)
   m_TagString: snappoint
   m_Icon: {fileID: 0}
@@ -738,7 +738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2852385988411768160}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +769,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1878517220375453926}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _snappoint (3)
   m_TagString: snappoint
   m_Icon: {fileID: 0}
@@ -958,7 +958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3502891272910770962}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _snappoint (2)
   m_TagString: snappoint
   m_Icon: {fileID: 0}
@@ -988,7 +988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7276722981521579232}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _snappoint (7)
   m_TagString: snappoint
   m_Icon: {fileID: 0}
@@ -1076,7 +1076,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7611952789262663279}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _snappoint (1)
   m_TagString: snappoint
   m_Icon: {fileID: 0}
@@ -1106,7 +1106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8700272427218440804}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _snappoint (5)
   m_TagString: snappoint
   m_Icon: {fileID: 0}
@@ -1294,7 +1294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 147107451247941711}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: _snappoint
   m_TagString: snappoint
   m_Icon: {fileID: 0}
