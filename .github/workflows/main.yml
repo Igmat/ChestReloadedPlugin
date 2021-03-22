@@ -12,6 +12,7 @@ jobs:
     outputs:
       skipped: ${{ steps.changelog.outputs.skipped }}
       tag: ${{ steps.changelog.outputs.tag }}
+      version: ${{ steps.changelog.outputs.version }}
       clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
 
     steps:
@@ -50,7 +51,7 @@ jobs:
       - name: Setup Variables
         id: vars
         run: |
-          echo ::set-output name=release::Plugin_release_${{ needs.version.outputs.tag }}.zip
+          echo ::set-output name=artifact::Plugin_release_${{ needs.version.outputs.tag }}.zip
           echo ::set-output name=filename::ChestReloaded.dll
           echo ::set-output name=solution::ChestReloadedPlugin.sln
           
@@ -70,11 +71,15 @@ jobs:
       - uses: papeloto/action-zip@v1
         with:
           files: output/ icon.png manifest.json README.md
-          dest: ${{ steps.vars.outputs.release }}
+          dest: ${{ steps.vars.outputs.artifact }}
           
       - name: Upload to NexusMods
-        run: |
-          dotnet unex upload ${{ steps.vars.outputs.release }} -v ${{ needs.version.outputs.tag }}
+        run: >-
+          dotnet unex upload ${{ steps.vars.outputs.artifact }}
+          -v ${{ needs.version.outputs.version }}
+        run: >-
+          dotnet unex changelog ${{ steps.vars.outputs.version }}
+          "${{ needs.version.outputs.clean_changelog }}"
         env:
           UNEX_APIKEY: ${{ secrets.NEXUS_API_KEY }}
           UNEX_COOKIES: ${{ secrets.NEXUS_COOKIES }}
@@ -86,5 +91,5 @@ jobs:
           tag: ${{ needs.version.outputs.tag }}
           name: Valheim Plugin ${{ needs.version.outputs.tag }}
           body: ${{ needs.version.outputs.clean_changelog }}
-          artifacts: ${{ steps.vars.outputs.release }}
+          artifacts: ${{ steps.vars.outputs.artifact }}
           token: ${{ secrets.github_token }}

@@ -1863,6 +1863,7 @@
     <Content Include="Assets\Texture2D\Julklapp_d.png" />
     <Content Include="Assets\Texture2D\Julklapp_n.png" />
     <Content Include="Assets\Texture2D\Knob.png" />
+    <Content Include="icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\Pipeline.cs" />
