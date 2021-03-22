@@ -7,7 +7,7 @@ namespace ChestReloaded.Hooks.Patches
     [HarmonyPatch(typeof(Player), "Update")]
     static class PlayerUpdate
     {
-        private static bool isAltHold = false;
+        internal static bool isAltHold = false;
 
         private static bool AlternativeInteract(Player player, GameObject go, bool hold)
         {

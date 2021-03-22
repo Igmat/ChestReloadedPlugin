@@ -12,7 +12,7 @@ namespace ChestReloaded.Hooks.Patches
 		{
 			GameObject hoverObject = __instance.GetHoverObject();
 			Hoverable hoverable = (hoverObject ? hoverObject.GetComponentInParent<Hoverable>() : null);
-			if (hoverable != null && !fromInventoryGui)
+			if (hoverable != null && !fromInventoryGui && PlayerUpdate.isAltHold)
 			{
 				if (!Helpers.IsSignAndOtherInteractable(hoverObject)) return;
 				var signComponentInParent = hoverObject.GetComponentInParent<Sign>();

@@ -16,7 +16,7 @@ namespace ChestReloaded
         {
             get
             {
-                return "\n" + Localization.instance.Localize("[<color=yellow><b>1-8</b></color>] $piece_signed_chest_rename");
+                return "\n" + Localization.instance.Localize("[<color=yellow><b>ALT + 1-8</b></color>] $piece_signed_chest_rename");
             }
         }
 
