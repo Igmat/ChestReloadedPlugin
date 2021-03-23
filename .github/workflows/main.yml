@@ -54,6 +54,11 @@ jobs:
           echo ::set-output name=artifact::Plugin_release_${{ needs.version.outputs.tag }}.zip
           echo ::set-output name=filename::ChestReloaded.dll
           echo ::set-output name=solution::ChestReloadedPlugin.sln
+
+      - name: Setup dotnet for NexusMod release
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: '3.1.x'
       
       - name: Setup dotnet for build
         uses: actions/setup-dotnet@v1.7.2
@@ -96,11 +101,6 @@ jobs:
           body: ${{ needs.version.outputs.clean_changelog }}
           artifacts: ${{ steps.vars.outputs.artifact }}
           token: ${{ secrets.github_token }}
-
-      - name: Setup dotnet for NexusMod release
-        uses: actions/setup-dotnet@v1.7.2
-        with:
-          dotnet-version: '3.1.x'
           
       - name: Upload to NexusMods
         run: |
