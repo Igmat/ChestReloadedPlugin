@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.1.0...v0.1.1) (2021-03-23)
+
+
+### Bug Fixes
+
+* make alternative item use use alt ([b2391bd](https://github.com/Igmat/ChestReloadedPlugin/commit/b2391bd226456ee3ddbf6d58fd17ed57fef7c5d4))
+
+
+
 # [0.1.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.0.1...v0.1.0) (2021-03-22)
 
 
@@ -14,5 +23,5 @@
 
 ## 0.0.1 (2021-03-20)
 
-* **Initial Release**
+
 
