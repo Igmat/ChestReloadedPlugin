@@ -48,12 +48,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         
+      - name: Read Config
+        id: config
+        uses: CumulusDS/get-yaml-paths-action@v0.1.0
+        with:
+          file: unex.yml
+          ModId: ModId
+          FileName: FileName
+
       - name: Setup Variables
         id: vars
         run: |
           echo ::set-output name=artifact::Plugin_release_${{ needs.version.outputs.tag }}.zip
-          echo ::set-output name=filename::ChestReloaded.dll
-          echo ::set-output name=solution::ChestReloadedPlugin.sln
+          echo ::set-output name=filename::${{ steps.config.outputs.filename }}.dll
+          echo ::set-output name=solution::${{ steps.config.outputs.filename }}.sln
+          echo ::set-output name=modid::${{ steps.config.outputs.modid }}
 
       - name: Setup dotnet for NexusMod release
         uses: actions/setup-dotnet@v1.7.2
@@ -103,9 +112,16 @@ jobs:
           token: ${{ secrets.github_token }}
           
       - name: Upload to NexusMods
-        run: |
-          dotnet unex upload ${{ steps.vars.outputs.artifact }} -v ${{ needs.version.outputs.version }}
-          dotnet unex changelog ${{ steps.vars.outputs.version }} "${{ needs.version.outputs.clean_changelog }}"
+        run: >
+          dotnet unex upload
+          ${{ steps.vars.outputs.modid }}
+          ${{ steps.vars.outputs.artifact }}
+          -v ${{ needs.version.outputs.version }}
+
+          dotnet unex changelog
+          ${{ steps.vars.outputs.version }}
+          "${{ needs.version.outputs.clean_changelog }}"
+          -m ${{ steps.vars.outputs.modid }}
         env:
           UNEX_APIKEY: ${{ secrets.NEXUS_API_KEY }}
           UNEX_COOKIES: ${{ secrets.NEXUS_COOKIES }}
