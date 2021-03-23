@@ -118,9 +118,10 @@ jobs:
 
           dotnet unex changelog
           ${{ steps.vars.outputs.version }}
-          "${{ needs.version.outputs.clean_changelog }}"
+          $CHANGELOG_BODY
           -m ${{ steps.vars.outputs.modid }}
         env:
+          UNEX_DEBUG: true
           UNEX_APIKEY: ${{ secrets.UNEX_API_KEY }}
           UNEX_COOKIES: ${{ secrets.UNEX_COOKIES }}
-          UNEX_DEBUG: true
+          CHANGELOG_BODY: "${{ needs.version.outputs.clean_changelog }}"
