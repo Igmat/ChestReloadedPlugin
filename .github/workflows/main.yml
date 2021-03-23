@@ -118,7 +118,7 @@ jobs:
 
           dotnet unex changelog
           ${{ steps.vars.outputs.version }}
-          $CHANGELOG_BODY
+          "$CHANGELOG_BODY"
           -m ${{ steps.vars.outputs.modid }}
         env:
           UNEX_DEBUG: true
