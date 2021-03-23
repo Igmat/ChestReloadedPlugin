@@ -47,9 +47,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1.7.2
-        with:
-          dotnet-version: 5.0.x
         
       - name: Setup Variables
         id: vars
@@ -57,6 +54,11 @@ jobs:
           echo ::set-output name=artifact::Plugin_release_${{ needs.version.outputs.tag }}.zip
           echo ::set-output name=filename::ChestReloaded.dll
           echo ::set-output name=solution::ChestReloadedPlugin.sln
+      
+      - name: Setup dotnet for build
+      - uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: 5.0.x
           
       - name: Setup Unity
         uses: kuler90/setup-unity@v1.0.6
@@ -85,15 +87,6 @@ jobs:
         with:
           files: output/ icon.png manifest.json README.md
           dest: ${{ steps.vars.outputs.artifact }}
-          
-      - name: Upload to NexusMods
-        run: |
-          dotnet unex upload ${{ steps.vars.outputs.artifact }} -v ${{ needs.version.outputs.version }}
-          dotnet unex changelog ${{ steps.vars.outputs.version }} "${{ needs.version.outputs.clean_changelog }}"
-        env:
-          UNEX_APIKEY: ${{ secrets.NEXUS_API_KEY }}
-          UNEX_COOKIES: ${{ secrets.NEXUS_COOKIES }}
-          UNEX_DEBUG: true
 
       - name: Create GH Release
         uses: ncipollo/release-action@v1
@@ -103,3 +96,17 @@ jobs:
           body: ${{ needs.version.outputs.clean_changelog }}
           artifacts: ${{ steps.vars.outputs.artifact }}
           token: ${{ secrets.github_token }}
+
+      - name: Setup dotnet for NexusMod release
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: '3.1.0'
+          
+      - name: Upload to NexusMods
+        run: |
+          dotnet unex upload ${{ steps.vars.outputs.artifact }} -v ${{ needs.version.outputs.version }}
+          dotnet unex changelog ${{ steps.vars.outputs.version }} "${{ needs.version.outputs.clean_changelog }}"
+        env:
+          UNEX_APIKEY: ${{ secrets.NEXUS_API_KEY }}
+          UNEX_COOKIES: ${{ secrets.NEXUS_COOKIES }}
+          UNEX_DEBUG: true
