@@ -32,4 +32,8 @@ sed -i "s/\"1.0.0\"/$version/" "$CREATEPROJECTPATH/Plugin/Plugin.cs"
 echo ""
 echo "----------------------------GENERATE ASSET BUNDLE------------------------------------------"
 # execute our pipeline script in batch mode of Unity
+set -e
+# we need to run unity once in order to produce required dlls from packages and ignore any errors (because there are some!)
+"$UNITYPATH" -batchmode -quit -projectPath "$CREATEPROJECTPATH" -nographics -stackTraceLogType Full -disable-gpu-skinning || true
+# this command will at last generate asset bundle without errors since all required dlls are already built
 exec "$UNITYPATH" -batchmode -quit -projectPath "$CREATEPROJECTPATH" -executeMethod Pipeline.BuildAssetBundles -nographics -stackTraceLogType Full -disable-gpu-skinning
