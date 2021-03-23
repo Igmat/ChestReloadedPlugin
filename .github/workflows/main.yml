@@ -50,11 +50,9 @@ jobs:
         
       - name: Read Config
         id: config
-        uses: CumulusDS/get-yaml-paths-action@v0.1.0
+        uses: juliojimenez/yamler@v0
         with:
-          file: unex.yml
-          ModId: ModId
-          FileName: FileName
+          yaml-file: unex.yml
 
       - name: Setup Variables
         id: vars
