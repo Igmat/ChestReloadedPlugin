@@ -328,9 +328,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild">
-    <Exec Command="sh prebuild.sh" ConsoleToMsBuild="true" />
+    <Exec Command="sh prebuild.sh" ConsoleToMsBuild="true" IgnoreStandardErrorWarningFormat="true" />
   </Target>
   <Target Name="AfterBuild">
-    <Exec Command="sh postbuild.sh" ConsoleToMsBuild="true" />
+    <Exec Command="sh postbuild.sh" ConsoleToMsBuild="true" IgnoreStandardErrorWarningFormat="true" />
   </Target>
 </Project>
