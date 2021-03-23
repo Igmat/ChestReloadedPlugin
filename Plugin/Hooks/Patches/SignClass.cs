@@ -21,8 +21,10 @@ namespace ChestReloaded.Hooks.Patches
             var currentItems = GetItemNames(currentText);
             var addedItem = item.m_shared.m_name;
             var items = currentItems.Concat(new[] { addedItem }).Distinct();
+            var localizedItems = Localization.instance.Localize(items.Join(delimiter: separator[0]));
 
-            var result = description + " (" + items.Join(delimiter: separator[0]) + ")";
+            var result = description + " (" + localizedItems + ")";
+            
 
             __instance.SetText(result);
         }
