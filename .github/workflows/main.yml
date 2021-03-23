@@ -121,6 +121,6 @@ jobs:
           "${{ needs.version.outputs.clean_changelog }}"
           -m ${{ steps.vars.outputs.modid }}
         env:
-          UNEX_APIKEY: ${{ secrets.NEXUS_API_KEY }}
-          UNEX_COOKIES: ${{ secrets.NEXUS_COOKIES }}
+          UNEX_APIKEY: ${{ secrets.UNEX_API_KEY }}
+          UNEX_COOKIES: ${{ secrets.UNEX_COOKIES }}
           UNEX_DEBUG: true
