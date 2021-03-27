@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.2.0...v0.3.0) (2021-03-27)
+
+
+### Features
+
+* make locker size depend on size of vanilla chests ([79c8d1c](https://github.com/Igmat/ChestReloadedPlugin/commit/79c8d1cf671ad4fa58442fd39668fa345707f02d))
+
+
+
 # [0.2.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.1.1...v0.2.0) (2021-03-23)
 
 
