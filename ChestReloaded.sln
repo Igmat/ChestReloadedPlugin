@@ -37,6 +37,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9A6F0570-A
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{5B03474A-FEA7-4951-BD7E-435BF0F5379E}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\mono-2.0-bdwgc.dll = scripts\mono-2.0-bdwgc.dll
+		scripts\pdb2mdb.exe = scripts\pdb2mdb.exe
+		scripts\postbuild.sh = scripts\postbuild.sh
+		scripts\prebuild.sh = scripts\prebuild.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +68,7 @@ Global
 		{11A928D7-640F-4562-87D1-13827C6236EE} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
 		{4FCCA697-A5DF-497C-8DF8-4E32667F939F} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
 		{9A6F0570-A16C-4304-B310-929D804AF9C8} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
+		{5B03474A-FEA7-4951-BD7E-435BF0F5379E} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87CF763D-F41E-48EB-9073-1C943A1028BC}
