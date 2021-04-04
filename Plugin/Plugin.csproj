@@ -413,9 +413,9 @@
     <EmbeddedResource Include="Assets\signed_chest.manifest" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>sh "$(SolutionDir)\scripts\prebuild.sh"</PreBuildEvent>
-  </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <Exec Command='sh "$(SolutionDir)\scripts\prebuild.sh"' ConsoleToMsBuild="true" IgnoreStandardErrorWarningFormat="true" />
+  </Target>
   <PropertyGroup>
     <PostBuildEvent>sh "$(SolutionDir)\scripts\postbuild.sh"
 if $(ConfigurationName) == Debug (
