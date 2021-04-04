@@ -23,11 +23,16 @@ namespace ChestReloaded
 
             Log.Init(Logger);
             Log.LogInfo("version: " + ModVer);
+
+            ConfigData.Init(Config);
+            Log.LogInfo("Configuration initialized");
+
             LanguageData.Init();
             Log.LogInfo("Language data initialized");
 
             Hooks.Patch.Init();
             Log.LogInfo("Patches initialized");
+
             Pieces.SignedLocker.Init();
             Log.LogInfo("Pieces added");
         }

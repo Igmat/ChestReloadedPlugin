@@ -9,7 +9,7 @@ namespace ChestReloaded.Hooks.Patches
         {
             var maybe_Sign = __instance.gameObject.GetComponent<Sign>();
             return (maybe_Sign != null)
-                ? __result + LanguageData.alternativeUse + LanguageData.signItemUse
+                ? __result + LanguageData.alternativeUse + LanguageData.lockerItemUse
                 : __result;
         }
     }

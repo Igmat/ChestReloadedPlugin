@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
+using ValheimLib;
 
 namespace ChestReloaded.Util
 {
@@ -18,6 +20,21 @@ namespace ChestReloaded.Util
                 return false; // one sign interactable covered by original code
 
             return true;
+        }
+
+        public static PieceTable HammerTable
+        {
+            get
+            {
+                GameObject hammerPrefab = Prefab.Cache.GetPrefab<GameObject>("_HammerPieceTable");
+                PieceTable hammerTable = hammerPrefab.GetComponent<PieceTable>();
+                return hammerTable;
+            }
+        }
+
+        public static GameObject GetPiece(string name)
+        {
+            return HammerTable.m_pieces.First((GameObject piece) => piece.name == name);
         }
     }
 }

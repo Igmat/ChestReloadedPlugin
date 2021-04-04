@@ -7,7 +7,7 @@ using System.Text;
 namespace ChestReloaded.Hooks.Patches
 {
     [HarmonyPatch(typeof(Sign))]
-    class SignClass
+    static class SignClass
     {
         private static string[] separator = new[] { " & " };
 

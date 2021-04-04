@@ -3,7 +3,7 @@ using HarmonyLib;
 
 namespace ChestReloaded.Hooks
 {
-    internal static class Patch
+    static class Patch
     {
         internal static Harmony HarmonyInstance;
 
