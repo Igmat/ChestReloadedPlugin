@@ -1,6 +1,6 @@
 {
   "name": "ChestReloaded",
-  "version_number": "0.3.0",
+  "version_number": "0.4.0",
   "website_url": "https://github.com/Igmat/ChestReloadedPlugin",
   "description": "Valheim mod with signable chests",
   "dependencies": [

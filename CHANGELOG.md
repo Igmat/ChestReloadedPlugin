@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.3.0...v0.4.0) (2021-04-04)
+
+
+### Features
+
+* add configuration for sizes ([2eccb6c](https://github.com/Igmat/ChestReloadedPlugin/commit/2eccb6cbd8396652733ca8039441f9faac718f73))
+
+
+
 # [0.3.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.2.0...v0.3.0) (2021-03-27)
 
 
