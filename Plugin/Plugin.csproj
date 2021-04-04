@@ -32,7 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartAction>Program</StartAction>
+    <StartProgram>$(GameDir)\valheim.exe</StartProgram>
+  </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ConfigData.cs" />
     <Compile Include="Hooks\Patch.cs" />
     <Compile Include="Hooks\Patches\ContainerGetHoverText.cs" />
     <Compile Include="Hooks\Patches\HumanoidUseItem.cs" />
@@ -45,6 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
     <Compile Include="Util\AssetBundleHelper.cs" />
+    <Compile Include="Util\ContainerSizes.cs" />
     <Compile Include="Util\Helpers.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -330,5 +336,6 @@
   </Target>
   <Target Name="AfterBuild">
     <Exec Command="sh postbuild.sh" ConsoleToMsBuild="true" IgnoreStandardErrorWarningFormat="true" />
+    <Exec Command='pdb2mdb.exe "$(OutputPath)$(AssemblyName).dll"' ConsoleToMsBuild="true" IgnoreStandardErrorWarningFormat="true" />
   </Target>
 </Project>
