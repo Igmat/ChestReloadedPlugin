@@ -449,7 +449,7 @@ MonoBehaviour:
   m_colliders: []
   m_center: {x: 0, y: 0, z: 0}
   m_haveCenter: 0
-  m_icon: {fileID: 21300582, guid: 7be785fd838ae68459d016bffd343bdc, type: 3}
+  m_icon: {fileID: 21300000, guid: 960b95f1ebfeff1409652c08c215679f, type: 3}
   m_name: $wooden_signed_locker
   m_description: 
   m_enabled: 1
@@ -867,7 +867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ...
+  m_Text: chest reloaded
 --- !u!1 &6088752780585831477
 GameObject:
   m_ObjectHideFlags: 0

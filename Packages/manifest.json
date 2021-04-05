@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.2d.sprite": "1.0.0",
     "com.unity.ide.vscode": "1.2.3",
     "com.unity.subsystemregistration": "1.0.6",
     "com.unity.textmeshpro": "2.1.4",
