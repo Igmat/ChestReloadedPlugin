@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{97D83F05-0F6A-4E9B-8B38-38C6911EC9F5}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\main.yml = .github\workflows\main.yml
+		.github\workflows\quality-gate.yml = .github\workflows\quality-gate.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{11A928D7-640F-4562-87D1-13827C6236EE}"

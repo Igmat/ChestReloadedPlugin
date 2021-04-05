@@ -1,0 +1,35 @@
+name: Quality Gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: 5.0.x
+          
+      - name: Setup Unity
+        uses: kuler90/setup-unity@v1.0.6
+        with:
+          unity-version: 2019.4.20f1
+
+      - name: Activate Unity
+        uses: kuler90/activate-unity@v1
+        with:
+          unity-username: ${{ secrets.UNITY_LOGIN }}
+          unity-password: ${{ secrets.UNITY_PASSWORD }}
+          unity-authenticator-key: ${{ secrets.UNITY_AUTHENTICATOR_KEY }}
+        
+      - name: Build and Create the package
+        run: dotnet build ${{ steps.vars.outputs.solution }} -c Release
