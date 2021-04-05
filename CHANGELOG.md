@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.4.0...v0.4.1) (2021-04-05)
+
+
+### Bug Fixes
+
+* radical mod size decrease (from 5MB to 276KB) ([efebb09](https://github.com/Igmat/ChestReloadedPlugin/commit/efebb09ee6ecfc9a87ba4f7bb5ccbb546faeadb4))
+
+
+
 # [0.4.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.3.0...v0.4.0) (2021-04-04)
 
 
