@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.4.1...v0.5.0) (2021-04-06)
+
+
+### Features
+
+* added big wooden locker ([9214250](https://github.com/Igmat/ChestReloadedPlugin/commit/9214250bacab6e8a87f3cb8a3d1e0181b796d1a4))
+
+
+
 ## [0.4.1](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.4.0...v0.4.1) (2021-04-05)
 
 
