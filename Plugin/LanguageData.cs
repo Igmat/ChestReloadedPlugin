@@ -29,6 +29,7 @@ namespace ChestReloaded
 
         public static void Init()
         {
+            Language.AddToken("$big_wooden_signed_locker", "Big Wooden Locker");
             Language.AddToken("$wooden_signed_locker", "Signed Locker");
             Language.AddToken("$stone_signed_locker", "Stone Signed Locker");
             Language.AddToken("$metal_signed_locker", "Metal Signed Locker");

@@ -390,7 +390,7 @@ MonoBehaviour:
   m_lastTakeAllTime: 0
   m_name: $wooden_signed_locker
   m_bkg: {fileID: 21300146, guid: f0f5da6661acde946ad5fe29ad235571, type: 3}
-  m_width: 7
+  m_width: 8
   m_height: 2
   m_privacy: 2
   m_checkGuardStone: 1
@@ -867,7 +867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: chest reloaded
+  m_Text: ...
 --- !u!1 &6088752780585831477
 GameObject:
   m_ObjectHideFlags: 0

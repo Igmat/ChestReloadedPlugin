@@ -33,7 +33,7 @@ namespace ChestReloaded
             Hooks.Patch.Init();
             Log.LogInfo("Patches initialized");
 
-            Pieces.SignedLocker.Init();
+            Pieces.Lockers.Init();
             Log.LogInfo("Pieces added");
         }
 

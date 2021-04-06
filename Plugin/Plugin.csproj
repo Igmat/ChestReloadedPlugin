@@ -46,6 +46,9 @@
     <Compile Include="Hooks\Patches\SignClass.cs" />
     <Compile Include="LanguageData.cs" />
     <Compile Include="Log.cs" />
+    <Compile Include="Pieces\AbstractLocker.cs" />
+    <Compile Include="Pieces\Lockers.cs" />
+    <Compile Include="Pieces\BigWoodenLocker.cs" />
     <Compile Include="Pieces\SignedLocker.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -414,7 +417,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild">
-    <Exec Command='sh "$(SolutionDir)\scripts\prebuild.sh"' ConsoleToMsBuild="true" IgnoreStandardErrorWarningFormat="true" />
+    <Exec Command="sh &quot;$(SolutionDir)\scripts\prebuild.sh&quot;" ConsoleToMsBuild="true" IgnoreStandardErrorWarningFormat="true" />
   </Target>
   <PropertyGroup>
     <PostBuildEvent>sh "$(SolutionDir)\scripts\postbuild.sh"
