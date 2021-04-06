@@ -13,6 +13,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
       - name: Create Changelog
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
