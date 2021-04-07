@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: -6280030445105249909}
   - component: {fileID: 8985800876445677459}
   m_Layer: 10
-  m_Name: SignedChest
+  m_Name: piece_signed_locker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

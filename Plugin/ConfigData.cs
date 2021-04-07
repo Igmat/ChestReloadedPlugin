@@ -9,6 +9,8 @@ namespace ChestReloaded
         public static ConfigEntry<int> signedLockerHeight;
         public static ConfigEntry<int> bigWoodenLockerWidth;
         public static ConfigEntry<int> bigWoodenLockerHeight;
+        public static ConfigEntry<int> ironLockerWidth;
+        public static ConfigEntry<int> ironLockerHeight;
         public static ConfigEntry<bool> isBalanced;
 
         public static void Init(ConfigFile configFile)
@@ -20,11 +22,11 @@ namespace ChestReloaded
 
             signedLockerWidth = configFile.Bind("Signed Locker",
                                                 "Width",
-                                                8,
+                                                4,
                                                 new ConfigDescription("Width of Signed Locker.\nRequire world restart.", new AcceptableValueRange<int>(1, 8)));
             signedLockerHeight = configFile.Bind("Signed Locker",
                                                 "Height",
-                                                2,
+                                                4,
                                                 new ConfigDescription("Height of Signed Locker.\nRequire world restart.", new AcceptableValueRange<int>(1, 20)));
 
             bigWoodenLockerWidth = configFile.Bind("Big Wooden Locker",
@@ -35,6 +37,15 @@ namespace ChestReloaded
                                                 "Height",
                                                 4,
                                                 new ConfigDescription("Height of Big Wooden Locker.\nRequire world restart.", new AcceptableValueRange<int>(1, 20)));
+
+            ironLockerWidth = configFile.Bind("Iron Locker",
+                                                "Width",
+                                                7,
+                                                new ConfigDescription("Width of Iron Locker.\nRequire world restart.", new AcceptableValueRange<int>(1, 8)));
+            ironLockerHeight = configFile.Bind("Iron Locker",
+                                                "Height",
+                                                4,
+                                                new ConfigDescription("Height of Iron Locker.\nRequire world restart.", new AcceptableValueRange<int>(1, 20)));
         }
     }
 }

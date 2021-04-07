@@ -1,0 +1,269 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WearNTear
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 895252998, guid: 84d26606dc84d8d479cd25f2b739068a,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_new
+    value: 
+    objectReference: {fileID: 6285616974662331343, guid: ebd9228443b6f274788c35bc00993c23,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_worn
+    value: 
+    objectReference: {fileID: 6285616974662331343, guid: ebd9228443b6f274788c35bc00993c23,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_broken
+    value: 
+    objectReference: {fileID: 6285616974662331343, guid: ebd9228443b6f274788c35bc00993c23,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_wet
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_noRoofWear
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_noSupportWear
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_materialType
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_supports
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_comOffset.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_comOffset.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_comOffset.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_health
+    value: 100
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_blunt
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_slash
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_pierce
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_chop
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_pickaxe
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_fire
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_frost
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_lightning
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_poison
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_damages.m_spirit
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_minDamageTreshold
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_hitNoise
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyNoise
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[0].m_prefab
+    value: 
+    objectReference: {fileID: 1822209817080611, guid: 504dd191b6c3b404dbecac084c751cb0,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[0].m_enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[0].m_attach
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[0].m_inheritParentRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[0].m_inheritParentScale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[0].m_randomRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[0].m_scale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[1].m_prefab
+    value: 
+    objectReference: {fileID: 1547670590557801, guid: 932fb47b48b1b1c48bb3fe26ab1b582c,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[1].m_enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[1].m_attach
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[1].m_inheritParentRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[1].m_inheritParentScale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[1].m_randomRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedEffect.m_effectPrefabs.Array.data[1].m_scale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_hitEffect.m_effectPrefabs.Array.size
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_hitEffect.m_effectPrefabs.Array.data[0].m_prefab
+    value: 
+    objectReference: {fileID: 1822209817080611, guid: 504dd191b6c3b404dbecac084c751cb0,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_hitEffect.m_effectPrefabs.Array.data[0].m_enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_hitEffect.m_effectPrefabs.Array.data[0].m_attach
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_hitEffect.m_effectPrefabs.Array.data[0].m_inheritParentRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_hitEffect.m_effectPrefabs.Array.data[0].m_inheritParentScale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_hitEffect.m_effectPrefabs.Array.data[0].m_randomRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_hitEffect.m_effectPrefabs.Array.data[0].m_scale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_switchEffect.m_effectPrefabs.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_autoCreateFragments
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_fragmentRoots.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_nview
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_colliders.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_support
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_createTime
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_myIndex
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_rainTimer
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_lastRepair
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_piece
+    value: 
+    objectReference: {fileID: 0}

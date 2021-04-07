@@ -1,0 +1,339 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Piece
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 2094620348, guid: 84d26606dc84d8d479cd25f2b739068a,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_primaryTarget
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_randomTarget
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_colliders.Array.size
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_center.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_center.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_center.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_haveCenter
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_icon
+    value: 
+    objectReference: {fileID: 21300000, guid: 960b95f1ebfeff1409652c08c215679f, type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_name
+    value: $wooden_signed_locker
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_description
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_category
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_isUpgrade
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_comfort
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_comfortGroup
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_groundPiece
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_allowAltGroundPlacement
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_groundOnly
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_cultivatedGroundOnly
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_waterPiece
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_clipGround
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_clipEverything
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_noInWater
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_notOnWood
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_notOnTiltingSurface
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_inCeilingOnly
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_notOnFloor
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_noClipping
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_onlyInTeleportArea
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_allowedInDungeons
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_spaceRequirement
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_repairPiece
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_canBeRemoved
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_onlyInBiome
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.size
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[0].m_prefab
+    value: 
+    objectReference: {fileID: 1437206862921368, guid: 6f861b5f46caec8469c615dc1ae0ac45,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[0].m_enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[0].m_attach
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[0].m_inheritParentRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[0].m_inheritParentScale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[0].m_randomRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[0].m_scale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[1].m_prefab
+    value: 
+    objectReference: {fileID: 1939921652485644, guid: b0b78d8f678dffd49bc10f7bffd13055,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[1].m_enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[1].m_attach
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[1].m_inheritParentRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[1].m_inheritParentScale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[1].m_randomRotation
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_placeEffect.m_effectPrefabs.Array.data[1].m_scale
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_dlc
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_craftingStation
+    value: 
+    objectReference: {fileID: 114145965657783123, guid: 4054679f0772cea458e97eb763fd65ca,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.size
+    value: 5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[0].m_resItem
+    value: 
+    objectReference: {fileID: 114486860409811655, guid: c5796858ae5e27a408cd3505e05acaed,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[0].m_amount
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[0].m_amountPerLevel
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[0].m_recover
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[1].m_resItem
+    value: 
+    objectReference: {fileID: 114502550014393265, guid: f3524186fc18f0a40babb4f8af33cfac,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[1].m_amount
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[1].m_amountPerLevel
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[1].m_recover
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[2].m_resItem
+    value: 
+    objectReference: {fileID: 114928657231366771, guid: 162ec35daff1f554580c9955a1a2e017,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[2].m_amount
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[2].m_amountPerLevel
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[2].m_recover
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[3].m_resItem
+    value: 
+    objectReference: {fileID: 114925024958027653, guid: 0ba9558023c925744979e7b21d183660,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[3].m_amount
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[3].m_amountPerLevel
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[3].m_recover
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[4].m_resItem
+    value: 
+    objectReference: {fileID: 114024503111198456, guid: 9c7e5b3ac3a2607478feed760da06a80,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[4].m_amount
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[4].m_amountPerLevel
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_resources.Array.data[4].m_recover
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_destroyedLootPrefab
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_nview
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_creator
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_myListIndex
+    value: 0
+    objectReference: {fileID: 0}

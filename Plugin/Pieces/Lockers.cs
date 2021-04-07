@@ -21,6 +21,7 @@ namespace ChestReloaded.Pieces
             AssetBundle assetBundle = AssetBundleHelper.GetFromResources("signed_chest");
             lockers.Add(new BigWoodenLocker(assetBundle));
             lockers.Add(new SignedLocker(assetBundle));
+            lockers.Add(new IronLocker(assetBundle));
 
             assetBundle.Unload(false);
         }

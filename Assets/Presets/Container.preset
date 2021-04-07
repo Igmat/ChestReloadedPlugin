@@ -26,6 +26,10 @@ Preset:
     value: 
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: m_lastTakeAllTime
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: m_name
     value: $wooden_signed_locker
     objectReference: {fileID: 0}
@@ -35,7 +39,7 @@ Preset:
     objectReference: {fileID: 21300146, guid: f0f5da6661acde946ad5fe29ad235571, type: 3}
   - target: {fileID: 0}
     propertyPath: m_width
-    value: 5
+    value: 8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_height
@@ -76,11 +80,13 @@ Preset:
   - target: {fileID: 0}
     propertyPath: m_open
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 7558934083637101223, guid: ebd9228443b6f274788c35bc00993c23,
+      type: 3}
   - target: {fileID: 0}
     propertyPath: m_closed
     value: 
-    objectReference: {fileID: 0}
+    objectReference: {fileID: 1386092411593459928, guid: ebd9228443b6f274788c35bc00993c23,
+      type: 3}
   - target: {fileID: 0}
     propertyPath: m_openEffects.m_effectPrefabs.Array.size
     value: 1
@@ -157,5 +163,29 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_destroyedLootPrefab
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_nview
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_piece
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_inUse
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_loading
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_lastRevision
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_lastDataString
     value: 
     objectReference: {fileID: 0}
