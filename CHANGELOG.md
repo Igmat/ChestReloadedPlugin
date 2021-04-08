@@ -1,3 +1,17 @@
+# [0.6.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.5.0...v0.6.0) (2021-04-08)
+
+
+### Bug Fixes
+
+* improve algorithm for size selection resulting ([eb61a04](https://github.com/Igmat/ChestReloadedPlugin/commit/eb61a04279e2771011fbd57bf6ab5daa5f474fae))
+
+
+### Features
+
+* add iron locker ([4866f1a](https://github.com/Igmat/ChestReloadedPlugin/commit/4866f1a99e68e459b68f13c41affe370c954507b))
+
+
+
 # [0.5.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.4.1...v0.5.0) (2021-04-06)
 
 
