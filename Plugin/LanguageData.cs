@@ -32,7 +32,7 @@ namespace ChestReloaded
             Language.AddToken("$big_wooden_signed_locker", "Big Wooden Locker");
             Language.AddToken("$wooden_signed_locker", "Signed Locker");
             Language.AddToken("$iron_signed_locker", "Iron Signed Locker");
-            Language.AddToken("$stone_signed_locker", "Stone Signed Locker");
+            Language.AddToken("$hidden_stone_locker", "Hidden Stone Locker");
             Language.AddToken("$piece_signed_locker_rename", "Rename locker");
             Language.AddToken("$piece_locker_assign_item", "Assign item to locker");
             Language.AddToken("$piece_sign_assign_item", "Assign item to sign");

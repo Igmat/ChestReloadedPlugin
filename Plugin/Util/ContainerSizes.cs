@@ -12,9 +12,9 @@ namespace ChestReloaded.Util
         public int Height;
 
         public static readonly ContainerSize[] PossibleContainerSizes =
-           (new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 })
+            Enumerable.Range(1, 30)
             .SelectMany((int i) =>
-                (new int[] { 1, 2, 3, 4, 5, 6, 7, 8 })
+                Enumerable.Range(1, 8)
                 .Select((int j) =>
                     new ContainerSize() { Height = i, Width = j }))
             // group by all available sizes

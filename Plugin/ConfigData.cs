@@ -11,6 +11,8 @@ namespace ChestReloaded
         public static ConfigEntry<int> bigWoodenLockerHeight;
         public static ConfigEntry<int> ironLockerWidth;
         public static ConfigEntry<int> ironLockerHeight;
+        public static ConfigEntry<int> hiddenStoneLockerWidth;
+        public static ConfigEntry<int> hiddenStoneLockerHeight;
         public static ConfigEntry<bool> isBalanced;
 
         public static void Init(ConfigFile configFile)
@@ -46,6 +48,15 @@ namespace ChestReloaded
                                                 "Height",
                                                 4,
                                                 new ConfigDescription("Height of Iron Locker.\nRequire world restart.", new AcceptableValueRange<int>(1, 20)));
+
+            hiddenStoneLockerWidth = configFile.Bind("Hidden Stone Locker",
+                                                "Width",
+                                                7,
+                                                new ConfigDescription("Width of Hidden Stone Locker.\nRequire world restart.", new AcceptableValueRange<int>(1, 8)));
+            hiddenStoneLockerHeight = configFile.Bind("Hidden Stone Locker",
+                                                "Height",
+                                                5,
+                                                new ConfigDescription("Height of Hidden Stone Locker.\nRequire world restart.", new AcceptableValueRange<int>(1, 20)));
         }
     }
 }

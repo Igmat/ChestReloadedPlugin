@@ -47,6 +47,7 @@
     <Compile Include="LanguageData.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Pieces\AbstractLocker.cs" />
+    <Compile Include="Pieces\HiddenStoneLocker.cs" />
     <Compile Include="Pieces\IronLocker.cs" />
     <Compile Include="Pieces\Lockers.cs" />
     <Compile Include="Pieces\BigWoodenLocker.cs" />

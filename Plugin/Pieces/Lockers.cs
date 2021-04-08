@@ -10,7 +10,7 @@ namespace ChestReloaded.Pieces
 {
     static class Lockers
     {
-        private static List<AbstractLocker> lockers = new List<AbstractLocker>();
+        public static List<AbstractLocker> lockers = new List<AbstractLocker>();
         public static void Init()
         {
             ObjectDBHelper.OnAfterInit += AddPieces;
@@ -22,6 +22,7 @@ namespace ChestReloaded.Pieces
             lockers.Add(new BigWoodenLocker(assetBundle));
             lockers.Add(new SignedLocker(assetBundle));
             lockers.Add(new IronLocker(assetBundle));
+            lockers.Add(new HiddenStoneLocker(assetBundle));
 
             assetBundle.Unload(false);
         }
