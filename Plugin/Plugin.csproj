@@ -56,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\IgnoreAccessModifiers.cs" />
     <Compile Include="Util\AssetBundleHelper.cs" />
+    <Compile Include="Util\ConfigurationManagerAttributes.cs" />
     <Compile Include="Util\ContainerSizes.cs" />
     <Compile Include="Util\Helpers.cs" />
   </ItemGroup>

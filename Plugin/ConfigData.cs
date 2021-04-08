@@ -13,10 +13,15 @@ namespace ChestReloaded
         public static ConfigEntry<int> ironLockerHeight;
         public static ConfigEntry<int> hiddenStoneLockerWidth;
         public static ConfigEntry<int> hiddenStoneLockerHeight;
+        public static ConfigEntry<int> nexusID;
         public static ConfigEntry<bool> isBalanced;
 
         public static void Init(ConfigFile configFile)
         {
+            nexusID = configFile.Bind("General",
+                                        "NexusID",
+                                        653,
+                                        new ConfigDescription("Nexus mod ID for updates", null, new ConfigurationManagerAttributes { IsAdvanced = true, ReadOnly = true }));
             isBalanced = configFile.Bind("",
                                          "Balanced sizes",
                                          true,
