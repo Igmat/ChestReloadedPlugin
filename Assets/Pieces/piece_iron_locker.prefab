@@ -1705,7 +1705,7 @@ MonoBehaviour:
   m_colliders: []
   m_center: {x: 0, y: 0, z: 0}
   m_haveCenter: 0
-  m_icon: {fileID: 21300000, guid: 082953ce69100e74d98a26f2998bb357, type: 3}
+  m_icon: {fileID: 21300000, guid: 50a3743f995517a4ab6295ca88c6cf34, type: 3}
   m_name: $iron_signed_locker
   m_description: 
   m_enabled: 1
@@ -1751,7 +1751,7 @@ MonoBehaviour:
       m_randomRotation: 0
       m_scale: 0
   m_dlc: 
-  m_craftingStation: {fileID: 114145965657783123, guid: 4054679f0772cea458e97eb763fd65ca,
+  m_craftingStation: {fileID: 114181586508775092, guid: f0f3254f9c7a7e9418b6ded46f010083,
     type: 3}
   m_resources:
   - m_resItem: {fileID: 114928657231366771, guid: 162ec35daff1f554580c9955a1a2e017,
@@ -1799,7 +1799,7 @@ MonoBehaviour:
   m_materialType: 2
   m_supports: 1
   m_comOffset: {x: 0, y: 0, z: 0}
-  m_health: 100
+  m_health: 1000
   m_damages:
     m_blunt: 1
     m_slash: 1
@@ -1835,6 +1835,14 @@ MonoBehaviour:
   m_hitEffect:
     m_effectPrefabs:
     - m_prefab: {fileID: 1822209817080611, guid: 504dd191b6c3b404dbecac084c751cb0,
+        type: 3}
+      m_enabled: 1
+      m_attach: 0
+      m_inheritParentRotation: 0
+      m_inheritParentScale: 0
+      m_randomRotation: 0
+      m_scale: 0
+    - m_prefab: {fileID: 1367528674485960, guid: 850ac53c70f69104f912914f5254b748,
         type: 3}
       m_enabled: 1
       m_attach: 0

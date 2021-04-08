@@ -3062,17 +3062,17 @@ MonoBehaviour:
   - m_resItem: {fileID: 114486860409811655, guid: c5796858ae5e27a408cd3505e05acaed,
       type: 3}
     m_amount: 20
-    m_amountPerLevel: 0
+    m_amountPerLevel: 1
     m_recover: 1
   - m_resItem: {fileID: 114024503111198456, guid: 9c7e5b3ac3a2607478feed760da06a80,
       type: 3}
     m_amount: 4
-    m_amountPerLevel: 0
+    m_amountPerLevel: 1
     m_recover: 1
   - m_resItem: {fileID: 114714853793917030, guid: 52fa54a2a64e4b042a9c72d1e9e46f59,
       type: 3}
     m_amount: 4
-    m_amountPerLevel: 0
+    m_amountPerLevel: 1
     m_recover: 1
   m_destroyedLootPrefab: {fileID: 0}
   m_nview: {fileID: 0}
@@ -3099,7 +3099,7 @@ MonoBehaviour:
   m_materialType: 0
   m_supports: 1
   m_comOffset: {x: 0, y: 0, z: 0}
-  m_health: 100
+  m_health: 500
   m_damages:
     m_blunt: 1
     m_slash: 1
@@ -3135,6 +3135,14 @@ MonoBehaviour:
   m_hitEffect:
     m_effectPrefabs:
     - m_prefab: {fileID: 1822209817080611, guid: 504dd191b6c3b404dbecac084c751cb0,
+        type: 3}
+      m_enabled: 1
+      m_attach: 0
+      m_inheritParentRotation: 0
+      m_inheritParentScale: 0
+      m_randomRotation: 0
+      m_scale: 0
+    - m_prefab: {fileID: 1367528674485960, guid: 850ac53c70f69104f912914f5254b748,
         type: 3}
       m_enabled: 1
       m_attach: 0

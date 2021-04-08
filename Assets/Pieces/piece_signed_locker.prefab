@@ -548,7 +548,7 @@ MonoBehaviour:
   m_materialType: 3
   m_supports: 1
   m_comOffset: {x: 0, y: 0, z: 0}
-  m_health: 100
+  m_health: 500
   m_damages:
     m_blunt: 1
     m_slash: 1
@@ -584,6 +584,14 @@ MonoBehaviour:
   m_hitEffect:
     m_effectPrefabs:
     - m_prefab: {fileID: 1822209817080611, guid: 504dd191b6c3b404dbecac084c751cb0,
+        type: 3}
+      m_enabled: 1
+      m_attach: 0
+      m_inheritParentRotation: 0
+      m_inheritParentScale: 0
+      m_randomRotation: 0
+      m_scale: 0
+    - m_prefab: {fileID: 1367528674485960, guid: 850ac53c70f69104f912914f5254b748,
         type: 3}
       m_enabled: 1
       m_attach: 0
