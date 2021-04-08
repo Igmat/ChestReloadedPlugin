@@ -1,3 +1,19 @@
+# [0.7.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.6.0...v0.7.0) (2021-04-08)
+
+
+### Bug Fixes
+
+* add notification for nexus update check mod ([3b97135](https://github.com/Igmat/ChestReloadedPlugin/commit/3b971354a4237e6da97fbeebced41ed19e4b5f65))
+* make iron locker require forge ([16485fa](https://github.com/Igmat/ChestReloadedPlugin/commit/16485fa0ad4d24aad5965ddfc386075b861f18e6))
+* minimize mocks ([0bb7b1f](https://github.com/Igmat/ChestReloadedPlugin/commit/0bb7b1ff144709376a77ad6edafbc610c0f7c273))
+
+
+### Features
+
+* add hidden stone locker ([d2685a9](https://github.com/Igmat/ChestReloadedPlugin/commit/d2685a93ead6d7d6adf2b07103bf0746c75e887f))
+
+
+
 # [0.6.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.5.0...v0.6.0) (2021-04-08)
 
 
