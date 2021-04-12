@@ -22,12 +22,10 @@ namespace ChestReloaded.Hooks.Patches
             player.m_lastHoverInteractTime = Time.time;
             if (signComponentInParent.Interact(player, hold))
             {
-                // ((Humanoid)player) is used because in original class used call to base
-                // IDK if it matters in this context
-                Vector3 forward = go.transform.position - ((Humanoid)player).transform.position;
+                Vector3 forward = go.transform.position - player.transform.position;
                 forward.y = 0f;
                 forward.Normalize();
-                ((Humanoid)player).transform.rotation = Quaternion.LookRotation(forward);
+                player.transform.rotation = Quaternion.LookRotation(forward);
                 player.m_zanim.SetTrigger("interact");
             }
 
