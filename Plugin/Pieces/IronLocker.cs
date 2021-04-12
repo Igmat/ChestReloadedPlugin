@@ -14,9 +14,9 @@ namespace ChestReloaded.Pieces
 
         public override string PrefabName => "piece_iron_locker";
 
-        protected override ConfigEntry<int> height => ConfigData.bigWoodenLockerHeight;
+        protected override ConfigEntry<int> height => ConfigData.ironLockerHeight;
 
-        protected override ConfigEntry<int> width => ConfigData.bigWoodenLockerWidth;
+        protected override ConfigEntry<int> width => ConfigData.ironLockerWidth;
 
         protected override ContainerSize CalculateBalancedSize()
         {
