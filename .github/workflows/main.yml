@@ -34,14 +34,14 @@ jobs:
           skip-commit: 'false'
         
       - name: Read Config
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false'
         id: config
         uses: juliojimenez/yamler@v0
         with:
           yaml-file: unex.yml
 
       - name: Setup Variables
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false'
         id: vars
         run: |
           echo ::set-output name=artifact::Plugin_release_${{ steps.changelog.outputs.tag }}.zip
@@ -50,41 +50,76 @@ jobs:
           echo ::set-output name=modid::${{ steps.config.outputs.modid }}
 
       - name: Setup dotnet for NexusMod release
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false'
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: '3.1.x'
       
       - name: Setup dotnet for build
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false'
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: 5.0.x
           
+      - name: Cache Unity
+        id: cacheunity
+        if: steps.changelog.outputs.skipped == 'false'
+        uses: actions/cache@v2
+        with:
+          path: C:\Program Files\Unity\Hub\Editor\2019.4.20f1\
+          key: unity-${{ hashFiles('**/lockfiles') }}
+
       - name: Setup Unity
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false' &&  steps.cacheunity.outputs.cache-hit != 'true'
         uses: kuler90/setup-unity@v1.0.6
         with:
           unity-version: 2019.4.20f1
 
       - name: Activate Unity
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false' &&  steps.cacheunity.outputs.cache-hit != 'true'
         uses: kuler90/activate-unity@v1
         with:
           unity-username: ${{ secrets.UNITY_LOGIN }}
           unity-password: ${{ secrets.UNITY_PASSWORD }}
           unity-authenticator-key: ${{ secrets.UNITY_AUTHENTICATOR_KEY }}
 
+      - name: Install SteamCMD
+        if: steps.changelog.outputs.skipped == 'false'
+        uses: CyberAndrii/setup-steamcmd@v1
+
+      # Get Valheim version id
+      - name: Get Valheim version id
+        id: valheimversion
+        run: echo "::set-output name=valheimversion::$(curl -s https://api.steamcmd.net/v1/info/896660 | jq -r ".data.\"896660\".depots.branches.public.buildid")"
+
+      - name: Cache Valheim
+        id: cachevalheim
+        if: steps.changelog.outputs.skipped == 'false'
+        uses: actions/cache@v2
+        with:
+          path: ~/VHINSTALL
+          key: ${{ steps.valheimversion.outputs.valheimversion }}-${{ hashFiles('**/lockfiles') }}
+
+      # Prepare Valheim dependencies
+      - name: Prepare Valheim dependencies
+        if: steps.changelog.outputs.skipped == 'false' &&  steps.cachevalheim.outputs.cache-hit != 'true'
+        run: |
+          wget -O bepinex.zip "https://valheim.thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.800/"
+          unzip bepinex.zip -d ~/BepInExRaw
+          steamcmd +login anonymous +force_install_dir ~/VHINSTALL +app_update 896660 validate +exit
+          mv ~/VHINSTALL/valheim_server_Data/ ~/VHINSTALL/valheim_Data/
+          mv ~/BepInExRaw/BepInExPack_Valheim/* ~/VHINSTALL/
+
       - name: Restore tools
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false'
         run: dotnet tool restore
         
       - name: Build and Create the package
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false'
         run: dotnet build ${{ steps.vars.outputs.solution }} -c Release
           
       - name: Zip
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false'
         run: |
           mkdir output
           mkdir output/plugins
@@ -95,7 +130,7 @@ jobs:
           dest: ${{ steps.vars.outputs.artifact }}
 
       - name: Create GH Release
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false'
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.changelog.outputs.tag }}
@@ -105,7 +140,7 @@ jobs:
           token: ${{ secrets.github_token }}
           
       - name: Upload to NexusMods
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        if: steps.changelog.outputs.skipped == 'false'
         run: >
           dotnet unex upload
           ${{ steps.vars.outputs.modid }}
