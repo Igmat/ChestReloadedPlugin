@@ -1,3 +1,13 @@
+## [0.7.1](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.7.0...v0.7.1) (2021-04-13)
+
+
+### Bug Fixes
+
+* change iron locker to be affected by proper config ([129c5bd](https://github.com/Igmat/ChestReloadedPlugin/commit/129c5bd1fb1d28a111f13ca7d5670395ea9457b1))
+* rework item handling on signs/lockers ([d65aea7](https://github.com/Igmat/ChestReloadedPlugin/commit/d65aea7d19f8222257e8b88d10d96bec983e6145))
+
+
+
 # [0.7.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.6.0...v0.7.0) (2021-04-08)
 
 
@@ -93,10 +103,6 @@
 ### Features
 
 * make lockers fully snapable ([f9cb3e0](https://github.com/Igmat/ChestReloadedPlugin/commit/f9cb3e02777beb25357b048590622fe6717da0d5))
-
-
-
-## 0.0.1 (2021-03-20)
 
 
 
