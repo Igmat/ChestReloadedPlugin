@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [ master ]
+  workflow_dispatch:
+  
 
 jobs:
   build:
@@ -84,7 +86,6 @@ jobs:
           unity-authenticator-key: ${{ secrets.UNITY_AUTHENTICATOR_KEY }}
 
       - name: Install SteamCMD
-        if: steps.changelog.outputs.skipped == 'false'
         uses: CyberAndrii/setup-steamcmd@v1
 
       # Get Valheim version id
