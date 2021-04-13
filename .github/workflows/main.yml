@@ -91,7 +91,7 @@ jobs:
       # Get Valheim version id
       - name: Get Valheim version id
         id: valheimversion
-        run: echo "::set-output name=valheimversion::$(steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 +quit)"
+        run: echo "::set-output name=valheimversion::$(steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 +quit | jq -r ".data.\"896660\".depots.branches.public.buildid")"
 
       - name: Cache Valheim
         id: cachevalheim
