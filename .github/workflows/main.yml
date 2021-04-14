@@ -189,7 +189,7 @@ jobs:
       run:
         shell: bash
     needs: [version, build]
-    if: ${{ (needs.version.outputs.skipped == 'false') && secrets.UNEX_API_KEY }}
+    if: (needs.version.outputs.skipped == 'false') && (secrets.UNEX_API_KEY != '')
 
     steps:
       - name: Checkout for restoring tools
