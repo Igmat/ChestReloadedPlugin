@@ -91,7 +91,9 @@ jobs:
       # Get Valheim version id
       - name: Get Valheim version id
         id: valheimversion
-        run: echo "::set-output name=valheimversion::$(LC_ALL=en_US.utf8 steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 +quit | grep -Po '(?<=change number\ :\ ).*(?=, last)')"
+        run: echo "::set-output name=valheimversion::$(steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 +quit | grep -Po '(?<=change number\ :\ ).*(?=, last)')"
+        env:
+          LC_ALL: en_US.utf8
 
       - name: Cache Valheim
         id: cachevalheim
