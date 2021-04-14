@@ -76,9 +76,9 @@ jobs:
           unity-version: 2019.4.20f1
 
       - name: Activate Unity
-        if: steps.cacheunity.outputs.cache-hit != 'true'
         uses: kuler90/activate-unity@v1
         with:
+          unity-path: C:\Program Files\Unity\Hub\Editor\2019.4.20f1\Editor\Unity.exe
           unity-username: ${{ secrets.UNITY_LOGIN }}
           unity-password: ${{ secrets.UNITY_PASSWORD }}
           unity-authenticator-key: ${{ secrets.UNITY_AUTHENTICATOR_KEY }}
