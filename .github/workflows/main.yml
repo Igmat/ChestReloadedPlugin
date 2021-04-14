@@ -36,14 +36,12 @@ jobs:
           skip-commit: 'false'
         
       - name: Read Config
-        if: steps.changelog.outputs.skipped == 'false'
         id: config
         uses: juliojimenez/yamler@v0
         with:
           yaml-file: unex.yml
 
       - name: Setup Variables
-        if: steps.changelog.outputs.skipped == 'false'
         id: vars
         run: |
           echo ::set-output name=artifact::Plugin_release_${{ steps.changelog.outputs.tag }}.zip
@@ -52,33 +50,30 @@ jobs:
           echo ::set-output name=modid::${{ steps.config.outputs.modid }}
 
       - name: Setup dotnet for NexusMod release
-        if: steps.changelog.outputs.skipped == 'false'
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: '3.1.x'
       
       - name: Setup dotnet for build
-        if: steps.changelog.outputs.skipped == 'false'
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: 5.0.x
           
       - name: Cache Unity
         id: cacheunity
-        if: steps.changelog.outputs.skipped == 'false'
         uses: actions/cache@v2
         with:
           path: C:\Program Files\Unity\Hub\Editor\2019.4.20f1\
           key: unity-${{ hashFiles('**/lockfiles') }}
 
       - name: Setup Unity
-        if: steps.changelog.outputs.skipped == 'false' &&  steps.cacheunity.outputs.cache-hit != 'true'
+        if: steps.cacheunity.outputs.cache-hit != 'true'
         uses: kuler90/setup-unity@v1.0.6
         with:
           unity-version: 2019.4.20f1
 
       - name: Activate Unity
-        if: steps.changelog.outputs.skipped == 'false' &&  steps.cacheunity.outputs.cache-hit != 'true'
+        if: steps.cacheunity.outputs.cache-hit != 'true'
         uses: kuler90/activate-unity@v1
         with:
           unity-username: ${{ secrets.UNITY_LOGIN }}
@@ -97,7 +92,6 @@ jobs:
 
       - name: Cache Valheim
         id: cachevalheim
-        if: steps.changelog.outputs.skipped == 'false'
         uses: actions/cache@v2
         with:
           path: ~/VHINSTALL
@@ -105,7 +99,7 @@ jobs:
 
       # Prepare Valheim dependencies
       - name: Prepare Valheim dependencies
-        if: steps.changelog.outputs.skipped == 'false' &&  steps.cachevalheim.outputs.cache-hit != 'true'
+        if: steps.cachevalheim.outputs.cache-hit != 'true'
         run: |
           wget -O bepinex.zip "https://valheim.thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.800/"
           unzip bepinex.zip -d ~/BepInExRaw
@@ -114,15 +108,12 @@ jobs:
           mv ~/BepInExRaw/BepInExPack_Valheim/* ~/VHINSTALL/
 
       - name: Restore tools
-        if: steps.changelog.outputs.skipped == 'false'
         run: dotnet tool restore
         
       - name: Build and Create the package
-        if: steps.changelog.outputs.skipped == 'false'
         run: dotnet build ${{ steps.vars.outputs.solution }} -c Release
           
       - name: Zip
-        if: steps.changelog.outputs.skipped == 'false'
         run: |
           mkdir output
           mkdir output/plugins
