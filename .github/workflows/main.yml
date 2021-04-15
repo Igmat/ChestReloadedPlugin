@@ -4,19 +4,30 @@ on:
   push:
     branches: [ master ]
   workflow_dispatch:
+
+
+defaults:
+  run:
+    shell: bash
   
 
 jobs:
-  build:
+  version:
+    name: Check if version update needed
     runs-on: windows-latest
-    defaults:
-      run:
-        shell: bash
+    outputs:
+      ref: ${{ steps.vars.outputs.ref }}
+      tag: ${{ steps.changelog.outputs.tag }}
+      version: ${{ steps.changelog.outputs.version }}
+      skipped: ${{ steps.changelog.outputs.skipped }}
+      clean_changelog: ${{ steps.changelog.outputs.clean_changelog }}
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
           token: ${{ secrets.GH_TOKEN }}
+
       - name: Create Changelog
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
@@ -34,53 +45,67 @@ jobs:
           skip-on-empty: 'true'
           skip-version-file: 'false'
           skip-commit: 'false'
-        
+
+      - name: Get release commit
+        id: vars
+        run: echo ::set-output name=ref::$(git show-ref master -s --heads)
+
+  build:
+    name: Build Plugin
+    runs-on: windows-latest
+    needs: version
+    if: needs.version.outputs.skipped == 'false'
+    outputs:
+      modid: ${{ steps.vars.outputs.modid }}
+      artifact: ${{ steps.vars.outputs.artifact }}
+      artifactName: ${{ steps.vars.outputs.artifactName }}
+
+    steps:
+      - name: Checkout pushed release commit
+        uses: actions/checkout@v2
+        with:
+          ref: needs.version.outputs.ref
+
       - name: Read Config
-        if: steps.changelog.outputs.skipped == 'false'
         id: config
         uses: juliojimenez/yamler@v0
         with:
           yaml-file: unex.yml
 
       - name: Setup Variables
-        if: steps.changelog.outputs.skipped == 'false'
         id: vars
         run: |
-          echo ::set-output name=artifact::Plugin_release_${{ steps.changelog.outputs.tag }}.zip
+          echo ::set-output name=artifactName::Plugin release ${{ needs.version.outputs.tag }}
+          echo ::set-output name=artifact::Plugin_release_${{ needs.version.outputs.tag }}.zip
           echo ::set-output name=filename::${{ steps.config.outputs.filename }}.dll
           echo ::set-output name=solution::${{ steps.config.outputs.filename }}.sln
           echo ::set-output name=modid::${{ steps.config.outputs.modid }}
 
-      - name: Setup dotnet for NexusMod release
-        if: steps.changelog.outputs.skipped == 'false'
-        uses: actions/setup-dotnet@v1.7.2
-        with:
-          dotnet-version: '3.1.x'
+      - name: Setup CLI utilities
+        run: choco install wget
       
       - name: Setup dotnet for build
-        if: steps.changelog.outputs.skipped == 'false'
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: 5.0.x
           
       - name: Cache Unity
         id: cacheunity
-        if: steps.changelog.outputs.skipped == 'false'
         uses: actions/cache@v2
         with:
           path: C:\Program Files\Unity\Hub\Editor\2019.4.20f1\
           key: unity-${{ hashFiles('**/lockfiles') }}
 
       - name: Setup Unity
-        if: steps.changelog.outputs.skipped == 'false' &&  steps.cacheunity.outputs.cache-hit != 'true'
+        if: steps.cacheunity.outputs.cache-hit == 'false'
         uses: kuler90/setup-unity@v1.0.6
         with:
           unity-version: 2019.4.20f1
 
       - name: Activate Unity
-        if: steps.changelog.outputs.skipped == 'false' &&  steps.cacheunity.outputs.cache-hit != 'true'
         uses: kuler90/activate-unity@v1
         with:
+          unity-path: C:\Program Files\Unity\Hub\Editor\2019.4.20f1\Editor\Unity.exe
           unity-username: ${{ secrets.UNITY_LOGIN }}
           unity-password: ${{ secrets.UNITY_PASSWORD }}
           unity-authenticator-key: ${{ secrets.UNITY_AUTHENTICATOR_KEY }}
@@ -88,7 +113,6 @@ jobs:
       - name: Install SteamCMD
         uses: CyberAndrii/setup-steamcmd@v1
 
-      # Get Valheim version id
       - name: Get Valheim version id
         id: valheimversion
         run: echo "::set-output name=valheimversion::$(steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 +quit | grep -Po '(?<=change number\ :\ ).*(?=, last)')"
@@ -97,65 +121,107 @@ jobs:
 
       - name: Cache Valheim
         id: cachevalheim
-        if: steps.changelog.outputs.skipped == 'false'
         uses: actions/cache@v2
         with:
           path: ~/VHINSTALL
           key: ${{ steps.valheimversion.outputs.valheimversion }}-${{ hashFiles('**/lockfiles') }}
 
-      # Prepare Valheim dependencies
       - name: Prepare Valheim dependencies
-        if: steps.changelog.outputs.skipped == 'false' &&  steps.cachevalheim.outputs.cache-hit != 'true'
+        if: steps.cachevalheim.outputs.cache-hit == 'false'
         run: |
           wget -O bepinex.zip "https://valheim.thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.800/"
           unzip bepinex.zip -d ~/BepInExRaw
           steamcmd +login anonymous +force_install_dir ~/VHINSTALL +app_update 896660 validate +exit
           mv ~/VHINSTALL/valheim_server_Data/ ~/VHINSTALL/valheim_Data/
           mv ~/BepInExRaw/BepInExPack_Valheim/* ~/VHINSTALL/
-
-      - name: Restore tools
-        if: steps.changelog.outputs.skipped == 'false'
-        run: dotnet tool restore
         
       - name: Build and Create the package
-        if: steps.changelog.outputs.skipped == 'false'
         run: dotnet build ${{ steps.vars.outputs.solution }} -c Release
           
-      - name: Zip
-        if: steps.changelog.outputs.skipped == 'false'
+      - name: Prepare output
         run: |
           mkdir output
           mkdir output/plugins
           cp Plugin/bin/Release/${{ steps.vars.outputs.filename }} output/plugins
-      - uses: papeloto/action-zip@v1
+
+      - name: Zip output
+        uses: papeloto/action-zip@v1
         with:
           files: output/ icon.png manifest.json README.md
           dest: ${{ steps.vars.outputs.artifact }}
 
-      - name: Create GH Release
-        if: steps.changelog.outputs.skipped == 'false'
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ steps.vars.outputs.artifactName }}
+          path: ${{ steps.vars.outputs.artifact }}
+
+  ghupload:
+    name: Create GitHub Release
+    runs-on: windows-latest
+    needs: [version, build]
+    if: needs.version.outputs.skipped == 'false'
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: ${{ needs.build.outputs.artifactName }}
+
+      - name: Release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.changelog.outputs.tag }}
-          name: Valheim Plugin ${{ steps.changelog.outputs.tag }}
-          body: ${{ steps.changelog.outputs.clean_changelog }}
-          artifacts: ${{ steps.vars.outputs.artifact }}
+          tag: ${{ needs.version.outputs.tag }}
+          name: Valheim Plugin ${{ needs.version.outputs.tag }}
+          body: ${{ needs.version.outputs.clean_changelog }}
+          artifacts: ${{ steps.download.outputs.download-path }}/${{ needs.build.outputs.artifact }}
           token: ${{ secrets.github_token }}
-          
-      - name: Upload to NexusMods
-        if: steps.changelog.outputs.skipped == 'false'
+
+  nexusupload:
+    name: Upload to Nexus Mods
+    runs-on: windows-latest
+    needs: [version, build]
+    if: needs.version.outputs.skipped == 'false'
+    env:
+      secretsAreSet: ${{ secrets.UNEX_API_KEY && secrets.UNEX_COOKIES }}
+
+    steps:
+      - name: Checkout for restoring tools
+        if: env.secretsAreSet
+        uses: actions/checkout@v2
+
+      - name: Download artifact
+        if: env.secretsAreSet
+        uses: actions/download-artifact@v2
+        id: download
+        with:
+          name: ${{ needs.build.outputs.artifactName }}
+
+      - name: Setup dotnet for tools
+        if: env.secretsAreSet
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: '3.1.x'
+
+      - name: Restore tools
+        if: env.secretsAreSet
+        run: dotnet tool restore
+
+      - name: Upload
+        if: env.secretsAreSet
         run: >
           dotnet unex upload
-          ${{ steps.vars.outputs.modid }}
-          ${{ steps.vars.outputs.artifact }}
-          -v ${{ steps.changelog.outputs.version }}
+          ${{ needs.build.outputs.modid }}
+          ${{ steps.download.outputs.download-path }}/${{ needs.build.outputs.artifact }}
+          -v ${{ needs.version.outputs.version }}
 
           dotnet unex changelog
-          ${{ steps.changelog.outputs.version }}
+          ${{ needs.version.outputs.version }}
           "$CHANGELOG_BODY"
-          -m ${{ steps.vars.outputs.modid }}
+          -m ${{ needs.build.outputs.modid }}
         env:
           UNEX_DEBUG: true
           UNEX_APIKEY: ${{ secrets.UNEX_API_KEY }}
           UNEX_COOKIES: ${{ secrets.UNEX_COOKIES }}
-          CHANGELOG_BODY: "${{ steps.changelog.outputs.clean_changelog }}"
+          CHANGELOG_BODY: "${{ needs.version.outputs.clean_changelog }}"
