@@ -35,10 +35,7 @@ namespace ChestReloaded.Hooks.Patches
         public static bool Prefix(Player __instance)
         {
             var player = __instance;
-            if (Input.GetKeyDown(KeyCode.LeftAlt))
-                isAltHold = true;
-            if (Input.GetKeyUp(KeyCode.LeftAlt))
-                isAltHold = false;
+            isAltHold = Input.GetKey(KeyCode.LeftAlt);
 
             if (ZInput.GetButtonDown("Use") && isAltHold)
             {
