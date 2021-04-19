@@ -120,7 +120,7 @@ jobs:
       - name: Configure Unity path
         uses: rvolo/xml-replace-action@v0.2
         with:
-          filepath: "Solutuion.targets"
+          filepath: "Solution.targets"
           xpath: "//UnityDir/text()"
           replace: "${{ steps.vars.outputs.unity }}Editor"
 
@@ -143,7 +143,7 @@ jobs:
       - name: Configure Valheim path
         uses: rvolo/xml-replace-action@v0.2
         with:
-          filepath: "Solutuion.targets"
+          filepath: "Solution.targets"
           xpath: "//GameDir/text()"
           replace: "${{ env.HOME }}/VHINSTALL"
         
