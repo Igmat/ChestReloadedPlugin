@@ -63,7 +63,7 @@ jobs:
       - name: Checkout pushed release commit
         uses: actions/checkout@v2
         with:
-          ref: needs.version.outputs.ref
+          ref: ${{ needs.version.outputs.ref }}
 
       - name: Read Config
         id: config
