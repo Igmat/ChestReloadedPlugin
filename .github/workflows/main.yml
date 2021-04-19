@@ -53,7 +53,7 @@ jobs:
     name: Build Plugin
     runs-on: windows-latest
     needs: version
-    if: needs.version.outputs.skipped == 'false'
+    if: needs.version.outputs.skipped != 'true'
     outputs:
       modid: ${{ steps.vars.outputs.modid }}
       artifact: ${{ steps.vars.outputs.artifact }}
@@ -104,7 +104,7 @@ jobs:
           key: unity-${{ hashFiles('**/lockfiles') }}
 
       - name: Setup Unity
-        if: steps.cacheunity.outputs.cache-hit == 'false'
+        if: steps.cacheunity.outputs.cache-hit != 'true'
         uses: kuler90/setup-unity@v1.0.6
         with:
           unity-version: ${{ steps.vars.outputs.unityVersion }}
@@ -132,7 +132,7 @@ jobs:
           key: ${{ steps.vars.outputs.valheimversion }}-${{ hashFiles('**/lockfiles') }}
 
       - name: Prepare Valheim dependencies
-        if: steps.cachevalheim.outputs.cache-hit == 'false'
+        if: steps.cachevalheim.outputs.cache-hit != 'true'
         run: |
           wget -O bepinex.zip "https://valheim.thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.800/"
           unzip bepinex.zip -d ~/BepInExRaw
@@ -172,7 +172,7 @@ jobs:
     name: Create GitHub Release
     runs-on: windows-latest
     needs: [version, build]
-    if: needs.version.outputs.skipped == 'false'
+    if: needs.version.outputs.skipped != 'true'
 
     steps:
       - name: Download artifact
@@ -194,7 +194,7 @@ jobs:
     name: Upload to Nexus Mods
     runs-on: windows-latest
     needs: [version, build]
-    if: needs.version.outputs.skipped == 'false'
+    if: needs.version.outputs.skipped != 'true'
     env:
       secretsAreSet: ${{ secrets.UNEX_API_KEY && secrets.UNEX_COOKIES }}
 
