@@ -93,7 +93,7 @@ jobs:
           echo ::set-output name=solution::${{ steps.config.outputs.filename }}.sln
           echo ::set-output name=modid::${{ steps.config.outputs.modid }}
           echo ::set-output name=unityVersion::"2019.4.20f1"
-          echo ::set-output name=unity::C:\Program Files\Unity\Hub\Editor\${{ steps.vars.outputs.unityVersion }}\
+          echo ::set-output name=unity::C:\\Program Files\\Unity\\Hub\\Editor\\2019.4.20f1\\
           echo ::set-output name=valheimversion::$(steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 +quit | grep -Po '(?<=change number\ :\ ).*(?=, last)')
          
       - name: Cache Unity
