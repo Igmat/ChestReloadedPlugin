@@ -119,7 +119,7 @@ jobs:
           unity-authenticator-key: ${{ secrets.UNITY_AUTHENTICATOR_KEY }}
 
       - name: Configure Unity path
-        uses: rvolo/xml-replace-action@v0.2
+        uses: rvolo/xml-replace-action@v0.3
         with:
           filepath: "Solution.targets"
           xpath: "//*[local-name(.)='UnityDir']/text()"
