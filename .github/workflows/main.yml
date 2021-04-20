@@ -95,6 +95,7 @@ jobs:
           echo ::set-output name=unityVersion::"2019.4.20f1"
           echo ::set-output name=unity::C:\\Program Files\\Unity\\Hub\\Editor\\2019.4.20f1\\
           echo ::set-output name=valheimversion::$(steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 +quit | grep -Po '(?<=change number\ :\ ).*(?=, last)')
+          echo ::set-output name=valheimpath::$(echo ~/VHINSTALL)
          
       - name: Cache Unity
         id: cacheunity
@@ -121,14 +122,14 @@ jobs:
         uses: rvolo/xml-replace-action@v0.2
         with:
           filepath: "Solution.targets"
-          xpath: "//UnityDir/text()"
+          xpath: "//*[local-name(.)='UnityDir']/text()"
           replace: "${{ steps.vars.outputs.unity }}Editor"
 
       - name: Cache Valheim
         id: cachevalheim
         uses: actions/cache@v2
         with:
-          path: ~/VHINSTALL
+          path: ${{ steps.vars.outputs.valheimpath }}
           key: ${{ steps.vars.outputs.valheimversion }}-${{ hashFiles('**/lockfiles') }}
 
       - name: Prepare Valheim dependencies
@@ -136,16 +137,16 @@ jobs:
         run: |
           wget -O bepinex.zip "https://valheim.thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.800/"
           unzip bepinex.zip -d ~/BepInExRaw
-          steamcmd +login anonymous +force_install_dir ~/VHINSTALL +app_update 896660 validate +exit
-          mv ~/VHINSTALL/valheim_server_Data/ ~/VHINSTALL/valheim_Data/
-          mv ~/BepInExRaw/BepInExPack_Valheim/* ~/VHINSTALL/
+          steamcmd +login anonymous +force_install_dir ${{ steps.vars.outputs.valheimpath }} +app_update 896660 validate +exit
+          mv ${{ steps.vars.outputs.valheimpath }}/valheim_server_Data/ ${{ steps.vars.outputs.valheimpath }}/valheim_Data/
+          mv ~/BepInExRaw/BepInExPack_Valheim/* ${{ steps.vars.outputs.valheimpath }}
 
       - name: Configure Valheim path
-        uses: rvolo/xml-replace-action@v0.2
+        uses: rvolo/xml-replace-action@v0.3
         with:
           filepath: "Solution.targets"
-          xpath: "//GameDir/text()"
-          replace: "${{ env.HOME }}/VHINSTALL"
+          xpath: "//*[local-name(.)='GameDir']/text()"
+          replace: ${{ steps.vars.outputs.valheimpath }}
         
       - name: Build and Create the package
         run: dotnet build ${{ steps.vars.outputs.solution }} -c Release
