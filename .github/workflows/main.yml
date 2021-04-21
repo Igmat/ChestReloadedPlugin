@@ -121,8 +121,8 @@ jobs:
       - name: Configure Unity path
         uses: rvolo/xml-replace-action@v0.3
         with:
-          filepath: "Solution.targets"
-          xpath: "//*[local-name(.)='UnityDir']/text()"
+          filepath: "Environment.props"
+          xpath: "//*[local-name(.)='UNITY_DIR']/text()"
           replace: "${{ steps.vars.outputs.unity }}Editor"
 
       - name: Cache Valheim
@@ -144,8 +144,8 @@ jobs:
       - name: Configure Valheim path
         uses: rvolo/xml-replace-action@v0.3
         with:
-          filepath: "Solution.targets"
-          xpath: "//*[local-name(.)='GameDir']/text()"
+          filepath: "Environment.props"
+          xpath: "//*[local-name(.)='VALHEIM_INSTALL']/text()"
           replace: ${{ steps.vars.outputs.valheimpath }}
         
       - name: Build and Create the package

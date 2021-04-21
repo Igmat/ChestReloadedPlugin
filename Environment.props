@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <VALHEIM_INSTALL>C:\Program Files (x86)\Steam\steamapps\common\Valheim</VALHEIM_INSTALL>
+    <UNITY_DIR>C:\Program Files\Unity\Hub\Editor\2019.4.20f1\Editor</UNITY_DIR>
+  </PropertyGroup>
+</Project>

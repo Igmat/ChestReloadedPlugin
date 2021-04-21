@@ -9,8 +9,8 @@ if [ -z "$CREATEPROJECTPATH" ] ; then
 fi
 
 # read paths from config
-UNITYDIR=`LC_ALL=en_US.utf8 grep -Po '(?<=\<UnityDir\>).*(?=\</UnityDir\>)' "$CREATEPROJECTPATH/Solution.targets"`
-VALHEIMPATH=`LC_ALL=en_US.utf8 grep -Po '(?<=\<GameDir\>).*(?=\</GameDir\>)' "$CREATEPROJECTPATH/Solution.targets"`
+UNITYDIR=`LC_ALL=en_US.utf8 grep -Po '(?<=\<UNITY_DIR\>).*(?=\</UNITY_DIR\>)' "$CREATEPROJECTPATH/Environment.props"`
+VALHEIMPATH=`LC_ALL=en_US.utf8 grep -Po '(?<=\<VALHEIM_INSTALL\>).*(?=\</VALHEIM_INSTALL\>)' "$CREATEPROJECTPATH/Environment.props"`
 UNITYPATH="$UNITYDIR\Unity.exe"
 
 # convert paths to unix format

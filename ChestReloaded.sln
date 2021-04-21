@@ -9,10 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "Plugin\Plugin.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{17C7A438-CA1A-405E-879C-21AAB7EE17D9}"
 	ProjectSection(SolutionItems) = preProject
+		Environment.props = Environment.props
 		icon.png = icon.png
 		manifest.json = manifest.json
 		nuget.config = nuget.config
-		Solution.targets = Solution.targets
 		unex.yml = unex.yml
 	EndProjectSection
 EndProject
