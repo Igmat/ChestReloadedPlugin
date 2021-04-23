@@ -31,7 +31,7 @@ sed -i "s/\"1.0.0\"/$version/" "$CREATEPROJECTPATH/Plugin/Properties/AssemblyInf
 sed -i "s/\"1.0.0\"/$version/" "$CREATEPROJECTPATH/Plugin/Plugin.cs"
 echo ""
 echo "-----------------------COPY ASSEMBLIES TO UNITTY PROJECT-----------------------------------"
-cp "$VALHEIMPATH"/valheim_Data/Managed/assembly_*.dll "$CREATEPROJECTPATH"/Assets/Assemblies -v
+cp "$VALHEIMPATH"/valheim_Data/Managed/assembly_*.dll "$CREATEPROJECTPATH"/Assets/Assemblies -v -u -p
 echo ""
 echo "----------------------------GENERATE ASSET BUNDLE------------------------------------------"
 # execute our pipeline script in batch mode of Unity

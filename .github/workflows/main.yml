@@ -149,7 +149,9 @@ jobs:
           replace: ${{ steps.vars.outputs.valheimpath }}
         
       - name: Build and Create the package
-        run: dotnet build ${{ steps.vars.outputs.solution }} -c Release
+        run: |
+          dotnet restore Plugin
+          dotnet build ${{ steps.vars.outputs.solution }} -c Release
           
       - name: Prepare output
         run: |
