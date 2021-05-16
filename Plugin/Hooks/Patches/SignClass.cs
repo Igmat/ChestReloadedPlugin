@@ -66,14 +66,18 @@ namespace ChestReloaded.Hooks.Patches
         {
             if (!PlayerUpdate.isAltHold) return __result;
 
-            Log.LogInfo("Use Item on Sign");
-            var data = __instance.GetData();
-            var addedItem = item.m_dropPrefab.name.GetStableHashCode();
-            data.ToggleItem(addedItem);
-
-            __instance.SetData(data);
-
-            return __result;
+            if (PrivateArea.CheckAccess(__instance.transform.position))
+            {
+                Log.LogInfo("Use Item on Sign");
+                var data = __instance.GetData();
+                var addedItem = item.m_dropPrefab.name.GetStableHashCode();
+                data.ToggleItem(addedItem);
+    
+                __instance.SetData(data);
+                return __result;
+            }
+            // check if need this
+            return true;
         }
 
         [HarmonyPatch("GetHoverText")]
@@ -94,13 +98,17 @@ namespace ChestReloaded.Hooks.Patches
         [HarmonyPrefix]
         public static bool UpdateText(Sign __instance)
         {
-            var text = __instance.GetData().localized;
-            if (!(__instance.m_textWidget.text == text))
+            if (PrivateArea.CheckAccess(__instance.transform.position))
             {
-                Log.LogMessage(__instance.m_textWidget.text + " changed to " + text);
-                __instance.m_textWidget.text = text;
+                var text = __instance.GetData().localized;
+                if (!(__instance.m_textWidget.text == text))
+                {
+                    Log.LogMessage(__instance.m_textWidget.text + " changed to " + text);
+                    __instance.m_textWidget.text = text;
+                }
+                return false;
             }
-            return false;
+            return true;
         }
 
         [HarmonyPatch("SetText")]
