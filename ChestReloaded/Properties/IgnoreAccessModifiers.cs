@@ -1,4 +1,4 @@
-﻿// Veilheim
+// Veilheim
 // a Valheim mod
 // 
 // File:    IgnoreAccessModifiers.cs

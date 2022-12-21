@@ -1,4 +1,4 @@
-﻿using Jotunn.Managers;
+using Jotunn.Managers;
 using System.Linq;
 using UnityEngine;
 

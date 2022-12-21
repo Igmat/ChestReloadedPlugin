@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using ChestReloaded.Util;
 using System.Collections.Generic;
 using System;

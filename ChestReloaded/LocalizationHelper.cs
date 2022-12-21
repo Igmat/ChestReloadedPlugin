@@ -1,4 +1,4 @@
-﻿
+
 namespace ChestReloaded
 {
     static class LocalizationHelper

@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using Jotunn.Managers;
 using System;
 using System.Linq;

@@ -1,4 +1,4 @@
-﻿# Chest Reloaded
+# Chest Reloaded
 
 This mods aims to provide you with better options when you make your base and warehouse for it.
 

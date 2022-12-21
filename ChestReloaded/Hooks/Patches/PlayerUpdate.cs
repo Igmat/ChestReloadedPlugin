@@ -1,4 +1,4 @@
-﻿using ChestReloaded.Util;
+using ChestReloaded.Util;
 using HarmonyLib;
 using UnityEngine;
 

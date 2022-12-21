@@ -1,4 +1,4 @@
-﻿using BepInEx.Configuration;
+using BepInEx.Configuration;
 using ChestReloaded.Util;
 using System;
 using System.Collections.Generic;
