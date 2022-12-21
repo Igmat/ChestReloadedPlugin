@@ -1,0 +1,299 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1546099841763078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4911884739687231}
+  - component: {fileID: 114878168079130569}
+  m_Layer: 12
+  m_Name: JVLmock_Iron
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4911884739687231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546099841763078}
+  m_LocalRotation: {x: 0, y: 0.67615, z: 0, w: 0.736764}
+  m_LocalPosition: {x: -281.9804, y: 68.58517, z: 11.9507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -85.08704, z: 0}
+--- !u!114 &114878168079130569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546099841763078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 825357479, guid: a7d759e371b0b6e49abc916bdcf444ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_myIndex: 0
+  m_autoPickup: 0
+  m_autoDestroy: 0
+  m_itemData:
+    m_stack: 0
+    m_durability: 0
+    m_quality: 0
+    m_variant: 0
+    m_shared:
+      m_name: 
+      m_dlc: 
+      m_itemType: 0
+      m_icons: []
+      m_attachOverride: 0
+      m_description: 
+      m_maxStackSize: 0
+      m_maxQuality: 0
+      m_weight: 0
+      m_value: 0
+      m_teleportable: 0
+      m_questItem: 0
+      m_equipDuration: 0
+      m_variants: 0
+      m_trophyPos: {x: 0, y: 0}
+      m_buildPieces: {fileID: 0}
+      m_centerCamera: 0
+      m_setName: 
+      m_setSize: 0
+      m_setStatusEffect: {fileID: 0}
+      m_equipStatusEffect: {fileID: 0}
+      m_movementModifier: 0
+      m_food: 0
+      m_foodStamina: 0
+      m_foodBurnTime: 0
+      m_foodRegen: 0
+      m_foodColor: {r: 0, g: 0, b: 0, a: 0}
+      m_armorMaterial: {fileID: 0}
+      m_helmetHideHair: 0
+      m_armor: 0
+      m_armorPerLevel: 0
+      m_damageModifiers: []
+      m_blockPower: 0
+      m_blockPowerPerLevel: 0
+      m_deflectionForce: 0
+      m_deflectionForcePerLevel: 0
+      m_timedBlockBonus: 0
+      m_animationState: 0
+      m_skillType: 0
+      m_toolTier: 0
+      m_damages:
+        m_damage: 0
+        m_blunt: 0
+        m_slash: 0
+        m_pierce: 0
+        m_chop: 0
+        m_pickaxe: 0
+        m_fire: 0
+        m_frost: 0
+        m_lightning: 0
+        m_poison: 0
+        m_spirit: 0
+      m_damagesPerLevel:
+        m_damage: 0
+        m_blunt: 0
+        m_slash: 0
+        m_pierce: 0
+        m_chop: 0
+        m_pickaxe: 0
+        m_fire: 0
+        m_frost: 0
+        m_lightning: 0
+        m_poison: 0
+        m_spirit: 0
+      m_attackForce: 0
+      m_backstabBonus: 0
+      m_dodgeable: 0
+      m_blockable: 0
+      m_attackStatusEffect: {fileID: 0}
+      m_spawnOnHit: {fileID: 0}
+      m_spawnOnHitTerrain: {fileID: 0}
+      m_attack:
+        m_attackType: 0
+        m_attackAnimation: 
+        m_attackRandomAnimations: 0
+        m_attackChainLevels: 0
+        m_consumeItem: 0
+        m_hitTerrain: 0
+        m_attackStamina: 0
+        m_speedFactor: 0
+        m_speedFactorRotation: 0
+        m_attackStartNoise: 0
+        m_attackHitNoise: 0
+        m_damageMultiplier: 0
+        m_forceMultiplier: 0
+        m_staggerMultiplier: 0
+        m_attackOriginJoint: 
+        m_attackRange: 0
+        m_attackHeight: 0
+        m_attackOffset: 0
+        m_spawnOnTrigger: {fileID: 0}
+        m_attackAngle: 0
+        m_attackRayWidth: 0
+        m_maxYAngle: 0
+        m_lowerDamagePerHit: 0
+        m_hitPointtype: 0
+        m_hitThroughWalls: 0
+        m_multiHit: 0
+        m_lastChainDamageMultiplier: 0
+        m_resetChainIfHit: 0
+        m_specialHitSkill: 0
+        m_specialHitType: 0
+        m_attackProjectile: {fileID: 0}
+        m_projectileVel: 0
+        m_projectileVelMin: 0
+        m_projectileAccuracy: 0
+        m_projectileAccuracyMin: 0
+        m_useCharacterFacing: 0
+        m_useCharacterFacingYAim: 0
+        m_launchAngle: 0
+        m_projectiles: 0
+        m_projectileBursts: 0
+        m_burstInterval: 0
+        m_destroyPreviousProjectile: 0
+        m_hitEffect:
+          m_effectPrefabs: []
+        m_hitTerrainEffect:
+          m_effectPrefabs: []
+        m_startEffect:
+          m_effectPrefabs: []
+        m_triggerEffect:
+          m_effectPrefabs: []
+        m_trailStartEffect:
+          m_effectPrefabs: []
+        m_character: {fileID: 0}
+        m_baseAI: {fileID: 0}
+        m_body: {fileID: 0}
+        m_zanim: {fileID: 0}
+        m_animEvent: {fileID: 0}
+        m_visEquipment: {fileID: 0}
+        m_attackDrawPercentage: 0
+        m_nextAttackChainLevel: 0
+        m_currentAttackCainLevel: 0
+        m_wasInAttack: 0
+        m_time: 0
+        m_projectileAttackStarted: 0
+        m_projectileFireTimer: 0
+        m_projectileBurstsFired: 0
+      m_secondaryAttack:
+        m_attackType: 0
+        m_attackAnimation: 
+        m_attackRandomAnimations: 0
+        m_attackChainLevels: 0
+        m_consumeItem: 0
+        m_hitTerrain: 0
+        m_attackStamina: 0
+        m_speedFactor: 0
+        m_speedFactorRotation: 0
+        m_attackStartNoise: 0
+        m_attackHitNoise: 0
+        m_damageMultiplier: 0
+        m_forceMultiplier: 0
+        m_staggerMultiplier: 0
+        m_attackOriginJoint: 
+        m_attackRange: 0
+        m_attackHeight: 0
+        m_attackOffset: 0
+        m_spawnOnTrigger: {fileID: 0}
+        m_attackAngle: 0
+        m_attackRayWidth: 0
+        m_maxYAngle: 0
+        m_lowerDamagePerHit: 0
+        m_hitPointtype: 0
+        m_hitThroughWalls: 0
+        m_multiHit: 0
+        m_lastChainDamageMultiplier: 0
+        m_resetChainIfHit: 0
+        m_specialHitSkill: 0
+        m_specialHitType: 0
+        m_attackProjectile: {fileID: 0}
+        m_projectileVel: 0
+        m_projectileVelMin: 0
+        m_projectileAccuracy: 0
+        m_projectileAccuracyMin: 0
+        m_useCharacterFacing: 0
+        m_useCharacterFacingYAim: 0
+        m_launchAngle: 0
+        m_projectiles: 0
+        m_projectileBursts: 0
+        m_burstInterval: 0
+        m_destroyPreviousProjectile: 0
+        m_hitEffect:
+          m_effectPrefabs: []
+        m_hitTerrainEffect:
+          m_effectPrefabs: []
+        m_startEffect:
+          m_effectPrefabs: []
+        m_triggerEffect:
+          m_effectPrefabs: []
+        m_trailStartEffect:
+          m_effectPrefabs: []
+        m_character: {fileID: 0}
+        m_baseAI: {fileID: 0}
+        m_body: {fileID: 0}
+        m_zanim: {fileID: 0}
+        m_animEvent: {fileID: 0}
+        m_visEquipment: {fileID: 0}
+        m_attackDrawPercentage: 0
+        m_nextAttackChainLevel: 0
+        m_currentAttackCainLevel: 0
+        m_wasInAttack: 0
+        m_time: 0
+        m_projectileAttackStarted: 0
+        m_projectileFireTimer: 0
+        m_projectileBurstsFired: 0
+      m_useDurability: 0
+      m_destroyBroken: 0
+      m_canBeReparied: 0
+      m_maxDurability: 0
+      m_durabilityPerLevel: 0
+      m_useDurabilityDrain: 0
+      m_durabilityDrain: 0
+      m_holdDurationMin: 0
+      m_holdStaminaDrain: 0
+      m_holdAnimationState: 
+      m_ammoType: 
+      m_aiAttackRange: 0
+      m_aiAttackRangeMin: 0
+      m_aiAttackInterval: 0
+      m_aiAttackMaxAngle: 0
+      m_aiWhenFlying: 0
+      m_aiWhenWalking: 0
+      m_aiWhenSwiming: 0
+      m_aiPrioritized: 0
+      m_aiTargetType: 0
+      m_hitEffect:
+        m_effectPrefabs: []
+      m_hitTerrainEffect:
+        m_effectPrefabs: []
+      m_blockEffect:
+        m_effectPrefabs: []
+      m_startEffect:
+        m_effectPrefabs: []
+      m_holdStartEffect:
+        m_effectPrefabs: []
+      m_triggerEffect:
+        m_effectPrefabs: []
+      m_trailStartEffect:
+        m_effectPrefabs: []
+      m_consumeStatusEffect: {fileID: 0}
+  m_nview: {fileID: 0}
+  m_pickupRequester: {fileID: 0}
+  m_lastOwnerRequest: 0
+  m_spawnTime: 0
+  m_haveAutoStacked: 0

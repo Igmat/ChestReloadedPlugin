@@ -39,7 +39,7 @@ jobs:
           tag-prefix: 'v'
           output-file: 'CHANGELOG.md'
           release-count: '10'
-          version-file: './manifest.json'
+          version-file: './ChestReloaded/Package/manifest.json'
           version-path: 'version_number'
           skip-on-empty: 'true'
           skip-version-file: 'false'
@@ -80,21 +80,21 @@ jobs:
       - name: Install dotnet
         uses: actions/setup-dotnet@v1.7.2
         with:
-          dotnet-version: 5.0.x
+          dotnet-version: 7.0.x
 
       - name: Setup Variables
         id: vars
         env:
           LC_ALL: en_US.utf8
         run: |
-          echo ::set-output name=artifactName::Plugin release ${{ needs.version.outputs.tag }}
-          echo ::set-output name=artifact::Plugin_release_${{ needs.version.outputs.tag }}.zip
+          echo ::set-output name=artifactName::ChestReloaded release ${{ needs.version.outputs.tag }}
+          echo ::set-output name=artifact::ChestReloaded_release_${{ needs.version.outputs.tag }}.zip
           echo ::set-output name=filename::${{ steps.config.outputs.filename }}.dll
           echo ::set-output name=solution::${{ steps.config.outputs.filename }}.sln
           echo ::set-output name=modid::${{ steps.config.outputs.modid }}
-          echo ::set-output name=unityVersion::"2019.4.20f1"
-          echo ::set-output name=unity::C:\\Program Files\\Unity\\Hub\\Editor\\2019.4.20f1\\
-          echo ::set-output name=valheimversion::$(steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 +quit | grep -Po '(?<=change number\ :\ ).*(?=, last)')
+          echo ::set-output name=unityVersion::"2020.3.33f1"
+          echo ::set-output name=unity::C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.33f1\\
+          echo ::set-output name=valheimversion::$(steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 -beta public-test -betapassword yesimadebackups +quit | grep -Po '(?<=change number\ :\ ).*(?=, last)')
           echo ::set-output name=valheimpath::$(echo ~/VHINSTALL)
          
       - name: Cache Unity
@@ -135,9 +135,9 @@ jobs:
       - name: Prepare Valheim dependencies
         if: steps.cachevalheim.outputs.cache-hit != 'true'
         run: |
-          wget -O bepinex.zip "https://valheim.thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.800/"
+          wget -O bepinex.zip "https://valheim.thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.1901/"
           unzip bepinex.zip -d ~/BepInExRaw
-          steamcmd +login anonymous +force_install_dir ${{ steps.vars.outputs.valheimpath }} +app_update 896660 validate +exit
+          steamcmd +login anonymous +force_install_dir ${{ steps.vars.outputs.valheimpath }} +app_update 896660 -beta public-test -betapassword yesimadebackups validate +exit
           mv ${{ steps.vars.outputs.valheimpath }}/valheim_server_Data/ ${{ steps.vars.outputs.valheimpath }}/valheim_Data/
           mv ~/BepInExRaw/BepInExPack_Valheim/* ${{ steps.vars.outputs.valheimpath }}
 
@@ -150,20 +150,12 @@ jobs:
         
       - name: Build and Create the package
         run: |
-          dotnet restore Plugin
+          dotnet restore ChestReloaded
           dotnet build ${{ steps.vars.outputs.solution }} -c Release
           
       - name: Prepare output
         run: |
-          mkdir output
-          mkdir output/plugins
-          cp Plugin/bin/Release/${{ steps.vars.outputs.filename }} output/plugins
-
-      - name: Zip output
-        uses: papeloto/action-zip@v1
-        with:
-          files: output/ icon.png manifest.json README.md
-          dest: ${{ steps.vars.outputs.artifact }}
+          cp Plugin/bin/Release/${{ steps.vars.outputs.filename }} ${{ steps.vars.outputs.artifact }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2

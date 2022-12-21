@@ -1,52 +1,9 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31112.23
+VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "Plugin\Plugin.csproj", "{9520573B-FF0F-4792-8FEF-ADE82749B704}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{17C7A438-CA1A-405E-879C-21AAB7EE17D9}"
-	ProjectSection(SolutionItems) = preProject
-		DoPrebuild.props = DoPrebuild.props
-		Environment.props = Environment.props
-		icon.png = icon.png
-		manifest.json = manifest.json
-		nuget.config = nuget.config
-		unex.yml = unex.yml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{97D83F05-0F6A-4E9B-8B38-38C6911EC9F5}"
-	ProjectSection(SolutionItems) = preProject
-		.github\workflows\main.yml = .github\workflows\main.yml
-		.github\workflows\quality-gate.yml = .github\workflows\quality-gate.yml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "git", "git", "{11A928D7-640F-4562-87D1-13827C6236EE}"
-	ProjectSection(SolutionItems) = preProject
-		.gitattributes = .gitattributes
-		.gitignore = .gitignore
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{4FCCA697-A5DF-497C-8DF8-4E32667F939F}"
-	ProjectSection(SolutionItems) = preProject
-		.config\dotnet-tools.json = .config\dotnet-tools.json
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9A6F0570-A16C-4304-B310-929D804AF9C8}"
-	ProjectSection(SolutionItems) = preProject
-		CHANGELOG.md = CHANGELOG.md
-		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{5B03474A-FEA7-4951-BD7E-435BF0F5379E}"
-	ProjectSection(SolutionItems) = preProject
-		scripts\mono-2.0-bdwgc.dll = scripts\mono-2.0-bdwgc.dll
-		scripts\pdb2mdb.exe = scripts\pdb2mdb.exe
-		scripts\postbuild.sh = scripts\postbuild.sh
-		scripts\prebuild.sh = scripts\prebuild.sh
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChestReloaded", "ChestReloaded\ChestReloaded.csproj", "{DEAF4438-8089-40ED-8175-398E1261D45B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,26 +11,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82C301F9-5AD0-8427-1BC9-9E5FB15DD4DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9520573B-FF0F-4792-8FEF-ADE82749B704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEAF4438-8089-40ED-8175-398E1261D45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEAF4438-8089-40ED-8175-398E1261D45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEAF4438-8089-40ED-8175-398E1261D45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEAF4438-8089-40ED-8175-398E1261D45B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{97D83F05-0F6A-4E9B-8B38-38C6911EC9F5} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
-		{11A928D7-640F-4562-87D1-13827C6236EE} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
-		{4FCCA697-A5DF-497C-8DF8-4E32667F939F} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
-		{9A6F0570-A16C-4304-B310-929D804AF9C8} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
-		{5B03474A-FEA7-4951-BD7E-435BF0F5379E} = {17C7A438-CA1A-405E-879C-21AAB7EE17D9}
-	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {87CF763D-F41E-48EB-9073-1C943A1028BC}
+		SolutionGuid = {04FA40AF-91D5-4CE8-92ED-7530C8DF0D5E}
 	EndGlobalSection
 EndGlobal
+
