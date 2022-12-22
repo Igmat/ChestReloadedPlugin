@@ -103,20 +103,30 @@ jobs:
         with:
           path: ${{ steps.vars.outputs.unity }}
           key: unity-${{ hashFiles('**/lockfiles') }}
-
-      - name: Setup Unity
+          
+      - name: Install Unity
+        id: unity-setup
         if: steps.cacheunity.outputs.cache-hit != 'true'
-        uses: kuler90/setup-unity@v1.0.6
+        uses: xrtk/unity-setup@v6
         with:
-          unity-version: ${{ steps.vars.outputs.unityVersion }}
+          build-targets: "StandaloneWindows64"
+          version-file-path: "ChestReloadedUnity/ProjectSettings/ProjectVersion.txt"
+          
+      - name: Get Unity paths
+        id: unity-paths
+        run: |
+          echo ::set-output name=unityEditor::"${{ env.UNITY_EDITOR_PATH }}"
+          echo ::set-output name=unityProject::"${{ env.UNITY_PROJECT_PATH }}"
 
       - name: Activate Unity
-        uses: kuler90/activate-unity@v1
+        uses: xrtk/activate-unity-license@v2
         with:
-          unity-path: ${{ steps.vars.outputs.unity }}Editor\Unity.exe
-          unity-username: ${{ secrets.UNITY_LOGIN }}
-          unity-password: ${{ secrets.UNITY_PASSWORD }}
-          unity-authenticator-key: ${{ secrets.UNITY_AUTHENTICATOR_KEY }}
+          # Required
+          username: ${{ secrets.UNITY_EMAIL }}
+          password: ${{ secrets.UNITY_PASSWORD }}
+          # Optional
+          # serial: ${{ secrets.UNITY_SERIAL }} # Required for pro/plus activations
+          license-type: 'Personal' # Chooses license type to use [ Personal, Professional ]
 
       - name: Configure Unity path
         uses: rvolo/xml-replace-action@v0.3
