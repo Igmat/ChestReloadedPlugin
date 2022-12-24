@@ -7,7 +7,8 @@ on:
 
 defaults:
   run:
-    shell: bash
+    # shell: bash
+    shell: pwsh
   
 
 jobs:
@@ -47,6 +48,7 @@ jobs:
 
       - name: Get release commit
         id: vars
+        shell: bash
         run: echo ::set-output name=ref::$(git show-ref master -s --heads)
 
   build:
@@ -86,6 +88,7 @@ jobs:
         id: vars
         env:
           LC_ALL: en_US.utf8
+        shell: bash
         run: |
           echo ::set-output name=artifactName::ChestReloaded release ${{ needs.version.outputs.tag }}
           echo ::set-output name=artifact::ChestReloaded_release_${{ needs.version.outputs.tag }}.zip
@@ -95,7 +98,7 @@ jobs:
           echo ::set-output name=unityVersion::"2020.3.33f1"
           echo ::set-output name=unity::C:\\Program Files\\Unity\\Hub\\Editor\\2020.3.33f1\\
           echo ::set-output name=valheimversion::$(steamcmd +login anonymous +app_info_update 1 +app_info_print 896660 -beta public-test -betapassword yesimadebackups +quit | grep -Po '(?<=change number\ :\ ).*(?=, last)')
-          echo ::set-output name=valheimpath::$(echo ~/VHINSTALL)
+          echo ::set-output name=valheimpath::$(echo C:\\VHINSTALL)
          
       - name: Cache Unity
         id: cacheunity
@@ -146,10 +149,10 @@ jobs:
         if: steps.cachevalheim.outputs.cache-hit != 'true'
         run: |
           wget -O bepinex.zip "https://valheim.thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.1901/"
-          unzip bepinex.zip -d ~/BepInExRaw
+          Expand-Archive -Path bepinex.zip -DestinationPath \BepInExRaw -Verbose
           steamcmd +login anonymous +force_install_dir ${{ steps.vars.outputs.valheimpath }} +app_update 896660 -beta public-test -betapassword yesimadebackups validate +exit
-          mv ${{ steps.vars.outputs.valheimpath }}/valheim_server_Data/ ${{ steps.vars.outputs.valheimpath }}/valheim_Data/
-          mv ~/BepInExRaw/BepInExPack_Valheim/* ${{ steps.vars.outputs.valheimpath }}
+          Move-Item -Path ${{ steps.vars.outputs.valheimpath }}\valheim_server_Data\ -Destination ${{ steps.vars.outputs.valheimpath }}\valheim_Data\
+          Move-Item -Path \BepInExRaw\BepInExPack_Valheim\* -Destination ${{ steps.vars.outputs.valheimpath }}
 
       - name: Configure Valheim path
         uses: rvolo/xml-replace-action@v0.3
@@ -159,14 +162,13 @@ jobs:
           replace: ${{ steps.vars.outputs.valheimpath }}
         
       - name: Build and Create the package
-        shell: pwsh
         run: |
           dotnet restore ChestReloaded
           dotnet build ${{ steps.vars.outputs.solution }} -c Release
           
       - name: Prepare output
         run: |
-          cp Plugin/bin/Release/${{ steps.vars.outputs.filename }} ${{ steps.vars.outputs.artifact }}
+          Copy-Item -Path ChestReloaded\bin\Release\${{ steps.vars.outputs.filename }} -Destination ${{ steps.vars.outputs.artifact }}
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
