@@ -168,7 +168,7 @@ jobs:
       - name: Build and Create the package
         run: |
           dotnet restore ChestReloaded
-          dotnet build ${{ steps.vars.outputs.solution }} -c Release
+          dotnet build ${{ steps.vars.outputs.solution }} -c Release -v d
           
       - name: Prepare output
         run: |
