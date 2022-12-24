@@ -134,7 +134,7 @@ jobs:
       - name: Configure Unity path
         uses: rvolo/xml-replace-action@v0.3
         with:
-          filepath: "Environment.props"
+          filepath: "./Environment.props"
           xpath: "//*[local-name(.)='UNITY_DIR']/text()"
           replace: "${{ steps.vars.outputs.unity }}Editor"
 
@@ -157,9 +157,13 @@ jobs:
       - name: Configure Valheim path
         uses: rvolo/xml-replace-action@v0.3
         with:
-          filepath: "Environment.props"
+          filepath: "./Environment.props"
           xpath: "//*[local-name(.)='VALHEIM_INSTALL']/text()"
           replace: ${{ steps.vars.outputs.valheimpath }}
+
+      - name: Environment config
+        shell: bash
+        run: cat "./Environment.props"
         
       - name: Build and Create the package
         run: |
