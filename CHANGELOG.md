@@ -1,3 +1,17 @@
+# [0.8.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.7.1...v0.8.0) (2022-12-24)
+
+
+### Bug Fixes
+
+* use better handling for alt key ([dbf6cd2](https://github.com/Igmat/ChestReloadedPlugin/commit/dbf6cd2238a66e1735c27e8fdcaa9079ca310503))
+
+
+### Features
+
+* add support for mistlands ([15d703d](https://github.com/Igmat/ChestReloadedPlugin/commit/15d703d3f58989fdb055007b06364e5a6bc26acb))
+
+
+
 ## [0.7.1](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.7.0...v0.7.1) (2021-04-13)
 
 
@@ -89,20 +103,6 @@
 ### Bug Fixes
 
 * make alternative item use use alt ([b2391bd](https://github.com/Igmat/ChestReloadedPlugin/commit/b2391bd226456ee3ddbf6d58fd17ed57fef7c5d4))
-
-
-
-# [0.1.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.0.1...v0.1.0) (2021-03-22)
-
-
-### Bug Fixes
-
-* add proper tags and layers to prefab ([20dbcf2](https://github.com/Igmat/ChestReloadedPlugin/commit/20dbcf2da96e79cecea5aa459ac2e6eee33612d7))
-
-
-### Features
-
-* make lockers fully snapable ([f9cb3e0](https://github.com/Igmat/ChestReloadedPlugin/commit/f9cb3e02777beb25357b048590622fe6717da0d5))
 
 
 
