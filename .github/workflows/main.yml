@@ -159,6 +159,7 @@ jobs:
           replace: ${{ steps.vars.outputs.valheimpath }}
         
       - name: Build and Create the package
+        shell: pwsh
         run: |
           dotnet restore ChestReloaded
           dotnet build ${{ steps.vars.outputs.solution }} -c Release
