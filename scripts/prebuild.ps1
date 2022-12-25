@@ -25,8 +25,7 @@ param(
 Push-Location -Path (Split-Path -Parent $MyInvocation.MyCommand.Path)
 
 # Test some preliminaries
-("$TargetPath",
- "$ValheimPath",
+("$ValheimPath",
  "$(Get-Location)\..\libraries"
 ) | % {
     if (!(Test-Path "$_")) {Write-Error -ErrorAction Stop -Message "$_ folder is missing"}
