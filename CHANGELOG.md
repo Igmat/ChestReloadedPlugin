@@ -1,3 +1,12 @@
+## [0.8.1](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.8.0...v0.8.1) (2022-12-25)
+
+
+### Bug Fixes
+
+* properly update readme for packaging ([3541b89](https://github.com/Igmat/ChestReloadedPlugin/commit/3541b89e3538462581ba2d5d04b74f0e0e97329c))
+
+
+
 # [0.8.0](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.7.1...v0.8.0) (2022-12-24)
 
 
@@ -94,15 +103,6 @@
 ### Features
 
 * add localization to item names ([d0e6e22](https://github.com/Igmat/ChestReloadedPlugin/commit/d0e6e227f9a00fbbf389c721b9a587a90a90d440))
-
-
-
-## [0.1.1](https://github.com/Igmat/ChestReloadedPlugin/compare/v0.1.0...v0.1.1) (2021-03-23)
-
-
-### Bug Fixes
-
-* make alternative item use use alt ([b2391bd](https://github.com/Igmat/ChestReloadedPlugin/commit/b2391bd226456ee3ddbf6d58fd17ed57fef7c5d4))
 
 
 
