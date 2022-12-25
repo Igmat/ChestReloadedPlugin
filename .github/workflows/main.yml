@@ -173,7 +173,7 @@ jobs:
       - name: Build and Create the package
         run: |
           nuget restore
-          dotnet build ${{ steps.vars.outputs.solution }} -c Release -v d
+          dotnet build ${{ steps.vars.outputs.solution }} -c Release
           
       - name: Prepare output
         run: |
